@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Venkat Giri Babu Undru — Program Director</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --navy:#0a0f2e;
+    --dark:#0d1235;
+    --accent:#00b4d8;
+    --accent2:#0077b6;
+    --gold:#f0a500;
+    --light:#e8f4f8;
+    --white:#ffffff;
+    --gray:#8892a4;
+    --card:#111936;
+  }
+  html{scroll-behavior:smooth;}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--navy);color:var(--white);line-height:1.7;}
+
+  /* NAV */
+  nav{position:fixed;top:0;width:100%;background:rgba(10,15,46,0.95);backdrop-filter:blur(10px);z-index:1000;border-bottom:1px solid rgba(0,180,216,0.2);}
+  .nav-inner{max-width:1200px;margin:auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;}
+  .logo{font-size:1rem;font-weight:700;color:var(--accent);letter-spacing:2px;text-transform:uppercase;}
+  .nav-links{display:flex;gap:1.5rem;list-style:none;}
+  .nav-links a{color:var(--gray);text-decoration:none;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;transition:color .3s;}
+  .nav-links a:hover{color:var(--accent);}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;background:linear-gradient(135deg,#0a0f2e 0%,#0d1235 50%,#0a1628 100%);position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(0,180,216,0.08) 0%,transparent 60%);}
+  .hero-photo{width:150px;height:150px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:0 0 0 6px rgba(0,180,216,0.15),0 0 30px rgba(0,180,216,0.5),0 0 60px rgba(0,180,216,0.25),0 0 100px rgba(0,119,182,0.2);margin-bottom:1.8rem;display:block;margin-left:auto;margin-right:auto;animation:photoglow 3s ease-in-out infinite alternate;}
+  @keyframes photoglow{from{box-shadow:0 0 0 6px rgba(0,180,216,0.15),0 0 30px rgba(0,180,216,0.5),0 0 60px rgba(0,180,216,0.25);}to{box-shadow:0 0 0 6px rgba(0,180,216,0.25),0 0 40px rgba(0,180,216,0.8),0 0 80px rgba(0,180,216,0.4),0 0 120px rgba(0,119,182,0.3);}}
+  .hero-badge{display:inline-block;border:1px solid var(--accent);color:var(--accent);padding:.3rem 1.2rem;border-radius:20px;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem;}
+  .hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:1rem;}
+  .hero h1 span{color:var(--accent);}
+  .hero-title{font-size:clamp(1rem,2.5vw,1.3rem);color:var(--gray);margin-bottom:2rem;max-width:700px;margin-left:auto;margin-right:auto;}
+  .hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+  .btn{padding:.8rem 2rem;border-radius:4px;font-size:.9rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all .3s;letter-spacing:.5px;}
+  .btn-primary{background:var(--accent);color:var(--navy);}
+  .btn-primary:hover{background:#fff;color:var(--navy);}
+  .btn-outline{border:1px solid var(--accent);color:var(--accent);}
+  .btn-outline:hover{background:var(--accent);color:var(--navy);}
+  .hero-stats{display:flex;gap:3rem;justify-content:center;margin-top:4rem;flex-wrap:wrap;}
+  .stat{text-align:center;}
+  .stat-num{font-size:2.5rem;font-weight:800;color:var(--accent);}
+  .stat-label{font-size:.75rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px;}
+
+  /* SECTIONS */
+  section{padding:5rem 2rem;}
+  .container{max-width:1100px;margin:auto;}
+  .section-label{font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;}
+  .section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:3rem;line-height:1.2;}
+
+  /* ABOUT */
+  #about{background:var(--dark);}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+  .about-text p{color:#b0bec5;margin-bottom:1.2rem;font-size:1.05rem;}
+  .highlight-box{background:var(--card);border-left:3px solid var(--gold);padding:1.5rem;border-radius:4px;margin-top:1.5rem;}
+  .highlight-box p{color:var(--gold);font-weight:600;font-size:.95rem;margin:0;}
+  .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+  .skill-tag{background:rgba(0,180,216,0.1);border:1px solid rgba(0,180,216,0.3);padding:.5rem 1rem;border-radius:4px;font-size:.82rem;color:var(--accent);text-align:center;}
+
+  /* ACHIEVEMENTS */
+  #achievements{background:var(--navy);}
+  .ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;}
+  .ach-card{background:var(--card);border:1px solid rgba(0,180,216,0.15);border-radius:8px;padding:2rem;position:relative;overflow:hidden;transition:transform .3s,border-color .3s;}
+  .ach-card:hover{transform:translateY(-4px);border-color:var(--accent);}
+  .ach-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+  .ach-icon{font-size:2rem;margin-bottom:1rem;}
+  .ach-card h3{font-size:1.1rem;font-weight:700;margin-bottom:.8rem;color:var(--white);}
+  .ach-card p{color:var(--gray);font-size:.9rem;}
+  .ach-num{font-size:2.2rem;font-weight:800;color:var(--accent);margin-bottom:.3rem;}
+
+  /* EXPERTISE */
+  #expertise{background:var(--dark);}
+  .exp-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+  .exp-col h3{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;padding-bottom:.5rem;border-bottom:1px solid rgba(240,165,0,0.3);}
+  .exp-col ul{list-style:none;}
+  .exp-col li{color:#b0bec5;padding:.4rem 0;font-size:.92rem;display:flex;align-items:center;gap:.5rem;}
+  .exp-col li::before{content:'▸';color:var(--accent);flex-shrink:0;}
+
+  /* EXPERIENCE */
+  #experience{background:var(--navy);}
+  .timeline{position:relative;padding-left:2rem;}
+  .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent2),transparent);}
+  .tl-item{position:relative;margin-bottom:3rem;padding-left:2rem;}
+  .tl-item::before{content:'';position:absolute;left:-2.4rem;top:.4rem;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--navy);}
+  .tl-meta{font-size:.75rem;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:.3rem;}
+  .tl-role{font-size:1.2rem;font-weight:700;margin-bottom:.2rem;}
+  .tl-company{font-size:.95rem;color:var(--gold);margin-bottom:1rem;}
+  .tl-bullets{list-style:none;}
+  .tl-bullets li{color:#b0bec5;font-size:.9rem;padding:.3rem 0;display:flex;gap:.7rem;}
+  .tl-bullets li::before{content:'▸';color:var(--accent);flex-shrink:0;margin-top:.05rem;}
+
+  /* CERTIFICATIONS */
+  #certifications{background:var(--dark);}
+  .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;}
+  .cert-card{background:var(--card);border:1px solid rgba(0,180,216,0.2);border-radius:8px;padding:1.8rem;text-align:center;transition:all .3s;}
+  .cert-card:hover{border-color:var(--gold);transform:translateY(-3px);}
+  .cert-icon{font-size:2.5rem;margin-bottom:1rem;}
+  .cert-card h3{font-size:1rem;font-weight:700;margin-bottom:.5rem;}
+  .cert-card p{font-size:.82rem;color:var(--gray);}
+
+  /* EDUCATION */
+  #education{background:var(--navy);}
+  .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
+  .edu-card{background:var(--card);border-radius:8px;padding:1.8rem;border-top:3px solid var(--accent2);}
+  .edu-card h3{font-size:1rem;font-weight:700;margin-bottom:.3rem;}
+  .edu-card .inst{color:var(--gold);font-size:.85rem;margin-bottom:.3rem;}
+  .edu-card .yr{color:var(--gray);font-size:.8rem;}
+
+  /* ARTICLES */
+  #articles{background:var(--navy);}
+
+  /* TESTIMONIALS */
+  #testimonials{background:var(--dark);}
+
+  /* AI CHAT */
+  #chat-section{background:linear-gradient(135deg,#0a0f2e,#0d1235);}
+  .chat-wrap{max-width:760px;margin:auto;}
+  .chat-intro{text-align:center;margin-bottom:2.5rem;}
+  .chat-intro p{color:var(--gray);}
+  .chat-box{background:var(--card);border:1px solid rgba(0,180,216,0.25);border-radius:12px;overflow:hidden;}
+  .chat-msgs{height:340px;overflow-y:auto;padding:1.5rem;display:flex;flex-direction:column;gap:1rem;}
+  .chat-msgs::-webkit-scrollbar{width:4px;}
+  .chat-msgs::-webkit-scrollbar-thumb{background:var(--accent2);border-radius:4px;}
+  .msg{max-width:80%;padding:.9rem 1.2rem;border-radius:12px;font-size:.9rem;line-height:1.5;}
+  .msg.user{background:rgba(0,180,216,0.2);border:1px solid rgba(0,180,216,0.3);align-self:flex-end;color:var(--white);}
+  .msg.bot{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);align-self:flex-start;color:#d0dde8;}
+  .msg.bot .typing{display:flex;gap:4px;align-items:center;}
+  .msg.bot .typing span{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:blink 1.2s infinite;}
+  .msg.bot .typing span:nth-child(2){animation-delay:.2s;}
+  .msg.bot .typing span:nth-child(3){animation-delay:.4s;}
+  @keyframes blink{0%,80%,100%{opacity:.3;}40%{opacity:1;}}
+  .chat-input-row{display:flex;border-top:1px solid rgba(0,180,216,0.2);}
+  .chat-input-row input{flex:1;background:transparent;border:none;padding:1rem 1.2rem;color:var(--white);font-size:.92rem;outline:none;}
+  .chat-input-row input::placeholder{color:var(--gray);}
+  .chat-input-row button{background:var(--accent);border:none;padding:1rem 1.5rem;color:var(--navy);font-weight:700;cursor:pointer;font-size:.9rem;transition:background .3s;}
+  .chat-input-row button:hover{background:#fff;}
+  .chat-suggestions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.2rem;justify-content:center;}
+  .chip{background:rgba(0,180,216,0.1);border:1px solid rgba(0,180,216,0.3);color:var(--accent);padding:.4rem .9rem;border-radius:20px;font-size:.78rem;cursor:pointer;transition:all .3s;}
+  .chip:hover{background:var(--accent);color:var(--navy);}
+
+  /* CONTACT */
+  #contact{background:var(--dark);text-align:center;}
+  .contact-grid{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;}
+  .contact-item{background:var(--card);border:1px solid rgba(0,180,216,0.2);border-radius:8px;padding:1.5rem 2.5rem;transition:all .3s;}
+  .contact-item:hover{border-color:var(--accent);transform:translateY(-3px);}
+  .contact-item a{color:var(--white);text-decoration:none;font-size:.95rem;}
+  .contact-item .ci-label{font-size:.7rem;color:var(--gray);letter-spacing:1px;text-transform:uppercase;margin-bottom:.3rem;}
+
+  /* MODAL */
+  .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:2000;align-items:center;justify-content:center;padding:2rem;}
+  .modal-inner{background:var(--card);border:1px solid rgba(0,180,216,0.25);border-radius:12px;max-width:700px;width:100%;max-height:85vh;overflow-y:auto;padding:2.5rem;position:relative;}
+  .modal-close{position:absolute;top:1rem;right:1rem;background:transparent;border:1px solid var(--gray);color:var(--gray);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;}
+  .article-meta{font-size:.8rem;color:var(--gray);margin-bottom:2rem;}
+  .article-body{color:#cdd8e3;font-size:.97rem;line-height:1.9;}
+  .article-body p{margin-bottom:1.2rem;}
+  .article-body .heading{font-weight:700;color:var(--white);margin-bottom:.6rem;}
+  .pull-quote{background:rgba(0,180,216,0.08);border-left:3px solid var(--accent);padding:1.2rem 1.5rem;border-radius:4px;margin:1.5rem 0;color:var(--white);font-size:1.05rem;font-style:italic;}
+  .article-footer{color:var(--gray);font-size:.85rem;}
+
+  footer{background:var(--navy);border-top:1px solid rgba(0,180,216,0.15);text-align:center;padding:2rem;color:var(--gray);font-size:.8rem;}
+
+  @media(max-width:768px){
+    .about-grid,.exp-cols{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    .hero-stats{gap:1.5rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">VGU</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#articles">Articles</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#chat-section">Ask Me</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <!-- Replace photo.jpg with your actual photo file uploaded alongside this index.html -->
+    <img src="photo.jpg" id="heroPhoto" class="hero-photo" alt="Venkat Giri Babu Undru" onerror="this.style.display='none'"/>
+    <div class="hero-badge">Program Director · Cloud & Infrastructure · 20+ Years</div>
+    <h1>VENKAT <span>GIRI BABU</span><br>UNDRU</h1>
+    <p class="hero-title">The leader organisations bring in when a programme is running behind, over budget, or simply not delivering — to stabilise, reset, and scale.</p>
+    <div class="hero-cta">
+      <a href="#experience" class="btn btn-primary">View Experience</a>
+      <a href="#contact" class="btn btn-outline">Let's Connect</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Years at Cognizant</div></div>
+      <div class="stat"><div class="stat-num">$13M</div><div class="stat-label">Annual Programme</div></div>
+      <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Engineers Led</div></div>
+      <div class="stat"><div class="stat-num">$5M+</div><div class="stat-label">Revenue Generated</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">About Me</div>
+        <div class="section-title">Delivering Predictability<br>at Fortune 500 Scale</div>
+        <p>Over 20 years at Cognizant, I have built and run global IT delivery operations for some of the most demanding clients in the US — including a decade anchored at PepsiCo, where I led a $13M annual infrastructure and cloud programme across 200+ engineers spanning North America, India, and beyond.</p>
+        <p>I take ownership of large, complex programmes and make them predictable — without drama or escalations. My domain is where infrastructure, cloud operations, and supply chain technology intersect. Fluent across Azure, AWS, and GCP — not just in certifications but in actual production environments at Fortune 500 scale.</p>
+        <div class="highlight-box">
+          <p>🏅 Cognizant 25th Anniversary Challenge Coin — awarded to 2,500 of 280,000 employees worldwide (2019)</p>
+        </div>
+      </div>
+      <div>
+        <div class="section-label" style="margin-bottom:1.2rem;">Core Skills</div>
+        <div class="skills-grid">
+          <div class="skill-tag">Operational Excellence</div>
+          <div class="skill-tag">Service Delivery Mgmt</div>
+          <div class="skill-tag">Digital Transformation</div>
+          <div class="skill-tag">Cloud Architecture</div>
+          <div class="skill-tag">Azure / AWS / GCP</div>
+          <div class="skill-tag">ITIL & SLA Management</div>
+          <div class="skill-tag">P&L Responsibility</div>
+          <div class="skill-tag">Executive Stakeholders</div>
+          <div class="skill-tag">Global Team Leadership</div>
+          <div class="skill-tag">DevOps Delivery</div>
+          <div class="skill-tag">Risk Management</div>
+          <div class="skill-tag">Margin Optimisation</div>
+          <div class="skill-tag">Kafka / Microservices</div>
+          <div class="skill-tag">Agentic AI</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="container">
+    <div class="section-label">Key Achievements</div>
+    <div class="section-title">Demonstrated Results</div>
+    <div class="ach-grid">
+      <div class="ach-card">
+        <div class="ach-icon">🚀</div>
+        <div class="ach-num">$13M</div>
+        <h3>Global Infrastructure Portfolio</h3>
+        <p>Managed a $13M/year global infrastructure and database operations programme at PepsiCo, scaling the delivery team from 80 to 200+ engineers across multiple geographies.</p>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">📈</div>
+        <div class="ach-num">$5M+</div>
+        <h3>Revenue Generated</h3>
+        <p>Drove $5M+ in T&M revenue at 30% contribution margin in competitive multi-vendor environments — twice, across different PepsiCo programmes.</p>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">🔁</div>
+        <div class="ach-num">18 Months</div>
+        <h3>Zero-Escalation Delivery</h3>
+        <p>Renewed a $1M / 2-year managed services contract without competitive rebid by delivering above SLA commitments for 18 consecutive months.</p>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">⚡</div>
+        <div class="ach-num">$10M</div>
+        <h3>Net-New Business Growth</h3>
+        <p>Delivered $10M in business growth within the first engagement year at Sensience at 40% contribution margin — standing up a cloud environment from zero.</p>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">🌐</div>
+        <div class="ach-num">5 → 30</div>
+        <h3>Rapid Team Scale-Up</h3>
+        <p>Scaled delivery team from 5 to 30 architects across USA, India, Mexico, and Canada within 6 months for a greenfield Azure cloud engagement.</p>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">🏅</div>
+        <div class="ach-num">Top 1%</div>
+        <h3>Cognizant Challenge Coin</h3>
+        <p>Recognised among 2,500 of 280,000 employees worldwide with the Cognizant 25th Anniversary Challenge Coin for exceptional delivery excellence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="container">
+    <div class="section-label">Expertise</div>
+    <div class="section-title">Core Competencies</div>
+    <div class="exp-cols">
+      <div class="exp-col">
+        <h3>Leadership</h3>
+        <ul>
+          <li>Strategic Programme Direction</li>
+          <li>Global Team Building (200+)</li>
+          <li>Executive Stakeholder Engagement</li>
+          <li>Organisational Change Management</li>
+          <li>P&L & Budget Ownership</li>
+          <li>Talent Development & Mentoring</li>
+        </ul>
+      </div>
+      <div class="exp-col">
+        <h3>Execution</h3>
+        <ul>
+          <li>Cloud Operations (Azure, AWS, GCP)</li>
+          <li>DevOps & Agile Delivery</li>
+          <li>ITIL & SLA Management</li>
+          <li>Kafka & Microservices Architecture</li>
+          <li>Database Administration (SQL Server)</li>
+          <li>24/7 Production Operations</li>
+        </ul>
+      </div>
+      <div class="exp-col">
+        <h3>Growth</h3>
+        <ul>
+          <li>Account Expansion ($1M–$5M+)</li>
+          <li>Contract Negotiation & Renewal</li>
+          <li>Multi-vendor Management</li>
+          <li>Margin Optimisation (30–40% CP)</li>
+          <li>Supply Chain Tech Strategy</li>
+          <li>Agentic AI Implementation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Career History</div>
+    <div class="section-title">A History of Delivery Excellence</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-meta">Dec 2022 – Present · Trenton, NJ</div>
+        <div class="tl-role">Program Director — Fleet, Transportation & Warehouse</div>
+        <div class="tl-company">PepsiCo (via Cognizant)</div>
+        <ul class="tl-bullets">
+          <li>Lead a $5M+ cloud-native programme for PepsiCo's North America Transportation & Warehouse operations across a 50-person cross-functional team.</li>
+          <li>Designed and scaled a real-time supply chain data platform (Kafka, microservices, Azure) reducing visibility latency across middle-mile and last-mile operations.</li>
+          <li>Renewed a $1M / 2-year managed services contract without competitive rebid — 18 consecutive months above SLA.</li>
+          <li>Drove $5M+ in additional T&M revenue at 30% contribution margin in a competitive multi-vendor environment.</li>
+          <li>Bridge between engineering teams and C-suite stakeholders — translating complex platform capabilities into measurable supply chain outcomes.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-meta">May 2016 – Dec 2022 · Plano, TX & Robbinsville, NJ</div>
+        <div class="tl-role">Senior Service Delivery Director — Infrastructure & Cloud</div>
+        <div class="tl-company">PepsiCo (via Cognizant)</div>
+        <ul class="tl-bullets">
+          <li>Managed a $13M/year global infrastructure and database operations portfolio — growing the team from 80 to 200+ engineers across multiple geographies.</li>
+          <li>Generated $5M in T&M revenue at 30% contribution margin by outperforming competing providers on delivery quality and speed.</li>
+          <li>Defined and owned the operational KPI framework, leading monthly executive reviews with PepsiCo IT leadership.</li>
+          <li>Maintained high client satisfaction through zero-escalation delivery discipline and proactive risk management across 6+ years.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-meta">Aug 2022 – Nov 2022 · Robbinsville, NJ</div>
+        <div class="tl-role">Program Director — Cloud Transformation</div>
+        <div class="tl-company">Sensience (via Cognizant)</div>
+        <ul class="tl-bullets">
+          <li>Stood up a best-in-class Azure cloud environment for a net-new client engagement from zero — integrating multiple service lines and establishing PMO governance.</li>
+          <li>Scaled delivery team from 5 to 30 architects across USA, India, Mexico, and Canada within 6 months.</li>
+          <li>Delivered $10M in business growth within the first engagement year at 40% contribution margin.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-meta">Jul 2014 – Jul 2016 · San Francisco Bay Area</div>
+        <div class="tl-role">Operations Manager — Digital Transformation</div>
+        <div class="tl-company">Peet's Coffee & Tea (via Cognizant)</div>
+        <ul class="tl-bullets">
+          <li>Directed large-scale infrastructure projects for a top-rated hospitality brand's transformation from legacy to cloud-native, Agile-first operations.</li>
+          <li>Managed $5M project budgets over two years at 40% contribution margin, delivering on-time and within scope.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-meta">2013 – 2014 · Chennai & Englewood, CO</div>
+        <div class="tl-role">Associate Operations Manager — SQL DBA Lead</div>
+        <div class="tl-company">Banking & Financial Services (via Cognizant)</div>
+        <ul class="tl-bullets">
+          <li>Led 24/7 DB administration & deployment operations for a 25-person team across onsite and offshore locations.</li>
+          <li>Developed Python & shell scripts for automation, monitoring, and system performance tuning.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-meta">2008 – 2013 · Chennai & Seattle</div>
+        <div class="tl-role">Technical SQL DBA Lead</div>
+        <div class="tl-company">Healthcare & Retail Clients (via Cognizant)</div>
+        <ul class="tl-bullets">
+          <li>Designed and implemented scalable SQL Server architectures including HA/DR solutions (Always On, Log Shipping, Replication).</li>
+          <li>Led database modernisation initiatives including cloud migration and performance optimisation at enterprise scale.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-meta">Nov 2005 – Mar 2008</div>
+        <div class="tl-role">SQL Server DBA</div>
+        <div class="tl-company">Microsoft</div>
+        <ul class="tl-bullets">
+          <li>Diagnosed and resolved SQL Server application issues, monitored performance, and supported deployment activities following change management protocols.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-label">Credentials</div>
+    <div class="section-title">Certifications</div>
+    <div class="cert-grid">
+      <div class="cert-card" style="border-color:rgba(200,100,0,0.4);">
+        <div class="cert-icon">🧠</div>
+        <h3>Claude Certified Architect – Foundations</h3>
+        <p style="color:var(--gold);font-size:.75rem;margin-bottom:.3rem;">Anthropic · Issued May 2026</p>
+        <p>Certified architect-level understanding of Claude's capabilities, deployment patterns, and responsible AI integration.</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">☁️</div>
+        <h3>AWS Certified Solutions Architect – Professional</h3>
+        <p style="color:var(--gold);font-size:.75rem;margin-bottom:.3rem;">Amazon Web Services</p>
+        <p>Advanced cloud architecture design and implementation across AWS at enterprise scale.</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🔷</div>
+        <h3>Microsoft Certified Azure Solutions Architect</h3>
+        <p style="color:var(--gold);font-size:.75rem;margin-bottom:.3rem;">Microsoft</p>
+        <p>Expert-level Azure architecture skills covering compute, network, storage, and security.</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🌐</div>
+        <h3>Google Cloud Certified Professional Cloud Architect</h3>
+        <p style="color:var(--gold);font-size:.75rem;margin-bottom:.3rem;">Google</p>
+        <p>Design, develop, and manage robust, scalable cloud solutions using Google Cloud technologies.</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🤖</div>
+        <h3>Micro-Certification – Agentic AI Executive</h3>
+        <p style="color:var(--gold);font-size:.75rem;margin-bottom:.3rem;">ServiceNow · Issued Sep 2025</p>
+        <p>AI Agent strategy and execution for enterprise leaders driving intelligent automation.</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🪟</div>
+        <h3>Microsoft Certified Technology Specialist (MCTS)</h3>
+        <p style="color:var(--gold);font-size:.75rem;margin-bottom:.3rem;">Microsoft</p>
+        <p>Deep expertise in Microsoft technologies and enterprise platform delivery.</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🪟</div>
+        <h3>Microsoft Certified IT Professional (MCITP)</h3>
+        <p style="color:var(--gold);font-size:.75rem;margin-bottom:.3rem;">Microsoft</p>
+        <p>Advanced IT administration and infrastructure management across enterprise Microsoft environments.</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🗄️</div>
+        <h3>Microsoft Certified Database Administrator (MCDBA)</h3>
+        <p style="color:var(--gold);font-size:.75rem;margin-bottom:.3rem;">Microsoft</p>
+        <p>Expert-level SQL Server database administration, performance tuning, and high availability.</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📐</div>
+        <h3>Architecting Microsoft Azure Solutions</h3>
+        <p style="color:var(--gold);font-size:.75rem;margin-bottom:.3rem;">Microsoft · Issued Dec 2019</p>
+        <p>Specialised certification in designing and architecting scalable solutions on Microsoft Azure.</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📋</div>
+        <h3>PRINCE2® 2017 Foundation & Practitioner</h3>
+        <p style="color:var(--gold);font-size:.75rem;margin-bottom:.3rem;">AXELOS · Issued Aug 2019</p>
+        <p>Internationally recognised project management methodology at practitioner level.</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">⚙️</div>
+        <h3>ITIL V3 & V4 Foundation</h3>
+        <p style="color:var(--gold);font-size:.75rem;margin-bottom:.3rem;">AXELOS Global Best Practice</p>
+        <p>IT Service Management best practices — certified at both V3 (2012) and V4 (2019) levels.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-label">Education</div>
+    <div class="section-title">Academic Background</div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <h3>Bachelor of Engineering</h3>
+        <div class="inst">Visvesvaraya Technological University</div>
+        <div class="yr">2001 – 2005</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section id="articles">
+  <div class="container">
+    <div class="section-label">Insights & Thought Leadership</div>
+    <div class="section-title">My Most Recent Articles</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;">
+
+      <div class="ach-card" style="padding:0;overflow:hidden;cursor:pointer;" onclick="document.getElementById('articleModal1').style.display='flex'">
+        <div style="height:160px;background:linear-gradient(135deg,#0a2a4a,#0077b6);display:flex;align-items:center;justify-content:center;">
+          <div style="font-size:2.5rem;">🏭</div>
+        </div>
+        <div style="padding:1.5rem;">
+          <div style="font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;">Supply Chain · Cloud · Transformation</div>
+          <h3 style="font-size:1.05rem;font-weight:700;line-height:1.4;margin-bottom:.8rem;">The Retailers Who Figured It Out Early Are Widening the Gap Every Quarter</h3>
+          <p style="color:var(--gray);font-size:.85rem;line-height:1.6;">What's happening at the intersection of retail, supply chain, and technology is one of the most exciting shifts in 20 years.</p>
+          <div style="margin-top:1.2rem;display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:.75rem;color:var(--gray);">April 2025 · LinkedIn Article</span>
+            <span style="color:var(--accent);font-size:.85rem;font-weight:600;">Read →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ach-card" style="padding:0;overflow:hidden;cursor:pointer;" onclick="document.getElementById('articleModal2').style.display='flex'">
+        <div style="height:160px;background:linear-gradient(135deg,#0a2a1a,#007744);display:flex;align-items:center;justify-content:center;">
+          <div style="font-size:2.5rem;">🌍</div>
+        </div>
+        <div style="padding:1.5rem;">
+          <div style="font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;">Leadership · Global Teams</div>
+          <h3 style="font-size:1.05rem;font-weight:700;line-height:1.4;margin-bottom:.8rem;">From 80 to 200 Engineers: What I Learned Scaling a Global Delivery Team</h3>
+          <p style="color:var(--gray);font-size:.85rem;line-height:1.6;">Scaling a global team isn't just a hiring exercise. It's an organisational design challenge.</p>
+          <div style="margin-top:1.2rem;display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:.75rem;color:var(--gray);">May 2025 · Original Article</span>
+            <span style="color:var(--accent);font-size:.85rem;font-weight:600;">Read →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ach-card" style="padding:0;overflow:hidden;cursor:pointer;" onclick="document.getElementById('articleModal3').style.display='flex'">
+        <div style="height:160px;background:linear-gradient(135deg,#1a0a2a,#5500aa);display:flex;align-items:center;justify-content:center;">
+          <div style="font-size:2.5rem;">🎯</div>
+        </div>
+        <div style="padding:1.5rem;">
+          <div style="font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;">Delivery Excellence · Culture</div>
+          <h3 style="font-size:1.05rem;font-weight:700;line-height:1.4;margin-bottom:.8rem;">Zero Escalations for 18 Months: How We Built a Culture of Delivery Accountability</h3>
+          <p style="color:var(--gray);font-size:.85rem;line-height:1.6;">Eighteen months. No escalations. Here's the framework, the mindset, and the hard lessons.</p>
+          <div style="margin-top:1.2rem;display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:.75rem;color:var(--gray);">June 2025 · Original Article</span>
+            <span style="color:var(--accent);font-size:.85rem;font-weight:600;">Read →</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-label">What Leaders Say</div>
+    <div class="section-title">Recommendations</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;">
+      <div class="ach-card" style="padding:2rem;">
+        <div style="font-size:2rem;color:var(--accent);margin-bottom:.8rem;">"</div>
+        <p style="color:#cdd8e3;font-size:.92rem;line-height:1.7;margin-bottom:1.2rem;">He is one of the most complete delivery leaders I have worked with. Venkat ran a MM infrastructure portfolio with governance discipline that was genuinely exceptional. What makes Venkat stand out is his executive presence — he can translate a complex infrastructure risk into a business case, run a C-suite forum, and set the tone for accountability across every team around him.</p>
+        <div style="border-top:1px solid rgba(0,180,216,0.2);padding-top:1rem;">
+          <div style="font-weight:700;color:var(--white);font-size:.95rem;">Prasad Kuchipudi</div>
+          <div style="color:var(--gold);font-size:.78rem;">Global Delivery Leader & Client Relationship — Cognizant</div>
+          <div style="color:var(--gray);font-size:.75rem;">Managed Venkat directly</div>
+        </div>
+      </div>
+      <div class="ach-card" style="padding:2rem;">
+        <div style="font-size:2rem;color:var(--accent);margin-bottom:.8rem;">"</div>
+        <p style="color:#cdd8e3;font-size:.92rem;line-height:1.7;margin-bottom:1.2rem;">I worked closely with Venkat on the RCG portfolio and saw firsthand how effectively he leads in complex environments. He brought clarity, discipline, and momentum to global teams and multiple MSPs. Venkat combines executive presence with operational rigor in a way that is both rare and highly impactful.</p>
+        <div style="border-top:1px solid rgba(0,180,216,0.2);padding-top:1rem;">
+          <div style="font-weight:700;color:var(--white);font-size:.95rem;">Santosh Kumar Ganga</div>
+          <div style="color:var(--gold);font-size:.78rem;">Technology Delivery Leader — Cloud & Infrastructure Services</div>
+          <div style="color:var(--gray);font-size:.75rem;">Senior colleague at Cognizant</div>
+        </div>
+      </div>
+      <div class="ach-card" style="padding:2rem;">
+        <div style="font-size:2rem;color:var(--accent);margin-bottom:.8rem;">"</div>
+        <p style="color:#cdd8e3;font-size:.92rem;line-height:1.7;margin-bottom:1.2rem;">Venkat consistently demonstrated exceptional leadership in delivering a multimillion-dollar infrastructure programme. His management of the Oracle@Azure migration was remarkable — he seamlessly coordinated 7 partner organisations. Venkat designed a migration factory model that ensured large-scale, successful delivery for PepsiCo Inc.</p>
+        <div style="border-top:1px solid rgba(0,180,216,0.2);padding-top:1rem;">
+          <div style="font-weight:700;color:var(--white);font-size:.95rem;">Giridharan Krishnan PMP®</div>
+          <div style="color:var(--gold);font-size:.78rem;">Program Manager — Cloud Transformation & Infrastructure Delivery</div>
+          <div style="color:var(--gray);font-size:.75rem;">Worked on the same team</div>
+        </div>
+      </div>
+      <div class="ach-card" style="padding:2rem;">
+        <div style="font-size:2rem;color:var(--accent);margin-bottom:.8rem;">"</div>
+        <p style="color:#cdd8e3;font-size:.92rem;line-height:1.7;margin-bottom:1.2rem;">Venkat Giri Babu is the person others look to when decisions need to be made and owned. I have seen him operate as a truly reliable senior leader in complex, high-stakes environments. I am happy to recommend him as a leader who raises the standard for everyone around him.</p>
+        <div style="border-top:1px solid rgba(0,180,216,0.2);padding-top:1rem;">
+          <div style="font-weight:700;color:var(--white);font-size:.95rem;">Vamsidhar Reddy</div>
+          <div style="color:var(--gold);font-size:.78rem;">Database Engineer — Oracle, PostgreSQL, AI Agents</div>
+          <div style="color:var(--gray);font-size:.75rem;">Reported to Venkat</div>
+        </div>
+      </div>
+      <div class="ach-card" style="padding:2rem;">
+        <div style="font-size:2rem;color:var(--accent);margin-bottom:.8rem;">"</div>
+        <p style="color:#cdd8e3;font-size:.92rem;line-height:1.7;margin-bottom:1.2rem;">I can confidently say he is an exceptional leader and mentor. His coaching style is both inspiring and practical. He has a remarkable ability in people management — always approachable, empathetic, and supportive — while also driving accountability and high performance. I highly recommend him to anyone looking for a leader who truly invests in people.</p>
+        <div style="border-top:1px solid rgba(0,180,216,0.2);padding-top:1rem;">
+          <div style="font-weight:700;color:var(--white);font-size:.95rem;">Shaayer Mukherjee</div>
+          <div style="color:var(--gold);font-size:.78rem;">Agile & Lean Coach — Deloitte | PMP® | IIT Delhi</div>
+          <div style="color:var(--gray);font-size:.75rem;">Reported to Venkat directly</div>
+        </div>
+      </div>
+      <div class="ach-card" style="padding:2rem;">
+        <div style="font-size:2rem;color:var(--accent);margin-bottom:.8rem;">"</div>
+        <p style="color:#cdd8e3;font-size:.92rem;line-height:1.7;margin-bottom:1.2rem;">On the Staples project, Venkat consistently demonstrated strong leadership, technical expertise, and problem-solving ability. His dedication earned not only the team's respect but also strong appreciation from the client. I highly recommend Venky as a professional who blends technical depth with inspiring leadership — an asset to any organisation.</p>
+        <div style="border-top:1px solid rgba(0,180,216,0.2);padding-top:1rem;">
+          <div style="font-weight:700;color:var(--white);font-size:.95rem;">Sandeep Mishra</div>
+          <div style="color:var(--gold);font-size:.78rem;">Transformation Leader — AI & Cloud Innovation</div>
+          <div style="color:var(--gray);font-size:.75rem;">Senior colleague at Cognizant</div>
+        </div>
+      </div>
+      <div class="ach-card" style="padding:2rem;">
+        <div style="font-size:2rem;color:var(--accent);margin-bottom:.8rem;">"</div>
+        <p style="color:#cdd8e3;font-size:.92rem;line-height:1.7;margin-bottom:1.2rem;">Venkat is the most hard working leader one will see in a team. He is the perfect client SPOC that an organisation needs. Venkat has huge experience in forming high-performance teams from project start-up and delivering the best-in-class delivery over and over.</p>
+        <div style="border-top:1px solid rgba(0,180,216,0.2);padding-top:1rem;">
+          <div style="font-weight:700;color:var(--white);font-size:.95rem;">Paul Pascaru</div>
+          <div style="color:var(--gold);font-size:.78rem;">Enterprise Architect</div>
+          <div style="color:var(--gray);font-size:.75rem;">Reported to Venkat directly</div>
+        </div>
+      </div>
+      <div class="ach-card" style="padding:2rem;">
+        <div style="font-size:2rem;color:var(--accent);margin-bottom:.8rem;">"</div>
+        <p style="color:#cdd8e3;font-size:.92rem;line-height:1.7;margin-bottom:1.2rem;">Venkat possesses an impressive ability to communicate complex technical concepts to both team members and non-technical stakeholders. One of his greatest strengths lies in fostering a collaborative and supportive work environment. I wholeheartedly recommend him for any position requiring a skilled and experienced leader in technology.</p>
+        <div style="border-top:1px solid rgba(0,180,216,0.2);padding-top:1rem;">
+          <div style="font-weight:700;color:var(--white);font-size:.95rem;">Avik Bhowmick</div>
+          <div style="color:var(--gold);font-size:.78rem;">Executive Director — JPMorganChase | Cybersecurity</div>
+          <div style="color:var(--gray);font-size:.75rem;">Managed Venkat directly</div>
+        </div>
+      </div>
+      <div class="ach-card" style="padding:2rem;">
+        <div style="font-size:2rem;color:var(--accent);margin-bottom:.8rem;">"</div>
+        <p style="color:#cdd8e3;font-size:.92rem;line-height:1.7;margin-bottom:1.2rem;">I had the opportunity to work with Venkat on a number of infrastructure initiatives. He is always highly professional, hard working, and smart — an extremely dedicated employee that always puts the customer first. He is always a pleasure to work with. I would fully recommend Venkat.</p>
+        <div style="border-top:1px solid rgba(0,180,216,0.2);padding-top:1rem;">
+          <div style="font-weight:700;color:var(--white);font-size:.95rem;">Marcello Burgio</div>
+          <div style="color:var(--gold);font-size:.78rem;">Retired Executive — Technology, Consulting & Client Services</div>
+          <div style="color:var(--gray);font-size:.75rem;">Managed Venkat directly</div>
+        </div>
+      </div>
+      <div class="ach-card" style="padding:2rem;">
+        <div style="font-size:2rem;color:var(--accent);margin-bottom:.8rem;">"</div>
+        <p style="color:#cdd8e3;font-size:.92rem;line-height:1.7;margin-bottom:1.2rem;">Venkat is a very proactive leader, works with a strong sense of purpose in driving results. He will be a great asset to the team and organisation. All the best!!</p>
+        <div style="border-top:1px solid rgba(0,180,216,0.2);padding-top:1rem;">
+          <div style="font-weight:700;color:var(--white);font-size:.95rem;">Prashant Gutala</div>
+          <div style="color:var(--gold);font-size:.78rem;">Product Partnerships & Ecosystem Lead — Microsoft</div>
+          <div style="color:var(--gray);font-size:.75rem;">Managed Venkat directly</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI CHAT -->
+<section id="chat-section">
+  <div class="container">
+    <div class="chat-wrap">
+      <div class="chat-intro">
+        <div class="section-label">AI-Powered</div>
+        <div class="section-title">Ask About Venkat</div>
+        <p>Curious about my experience, achievements, or how I can help your organisation? Ask anything below.</p>
+      </div>
+      <div class="chat-box">
+        <div class="chat-msgs" id="chatMsgs">
+          <div class="msg bot">👋 Hi! I'm Venkat's AI assistant. Ask me anything about his career, skills, achievements, or how he can add value to your organisation.</div>
+        </div>
+        <div class="chat-input-row">
+          <input type="text" id="chatInput" placeholder="Ask something about Venkat..." onkeydown="if(event.key==='Enter')sendMsg()"/>
+          <button onclick="sendMsg()">Send →</button>
+        </div>
+      </div>
+      <div class="chat-suggestions">
+        <span class="chip" onclick="askChip(this)">What's Venkat's biggest achievement?</span>
+        <span class="chip" onclick="askChip(this)">What cloud platforms does he know?</span>
+        <span class="chip" onclick="askChip(this)">How large are the teams he's led?</span>
+        <span class="chip" onclick="askChip(this)">What certifications does he hold?</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Get In Touch</div>
+    <div class="section-title">Let's Connect</div>
+    <p style="color:var(--gray);max-width:500px;margin:0 auto;">If you're building a senior IT operations or service delivery function and need someone who can run it like it's their own — let's talk.</p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="ci-label">Email</div>
+        <a href="mailto:venkat387@gmail.com">venkat387@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <div class="ci-label">Location</div>
+        <span>Trenton, New Jersey, USA</span>
+      </div>
+      <div class="contact-item">
+        <div class="ci-label">LinkedIn</div>
+        <a href="https://www.linkedin.com/in/venkat-giribabu-undru-1255a937/" target="_blank">View Profile →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Venkat Giri Babu Undru · All Rights Reserved</p>
+</footer>
+
+<!-- ARTICLE MODAL 1 -->
+<div id="articleModal1" class="modal" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="document.getElementById('articleModal1').style.display='none'">✕</button>
+    <div class="section-label">Supply Chain · Cloud · Transformation</div>
+    <h2 style="font-size:1.5rem;font-weight:800;line-height:1.3;margin-bottom:.5rem;">The Retailers Who Figured It Out Early Are Widening the Gap Every Quarter</h2>
+    <div class="article-meta">By Venkat Giri Babu Undru &nbsp;·&nbsp; April 2025 &nbsp;·&nbsp; 3 min read</div>
+    <div class="article-body">
+      <p>After a long time away from LinkedIn, I'm excited to be back — and I couldn't think of a better moment to return than right now.</p>
+      <p>Because what's happening at the intersection of retail, supply chain, and technology is genuinely one of the most exciting shifts I've seen in 20 years.</p>
+      <p class="heading">Think about what's changed in the last 3 years alone:</p>
+      <ul style="list-style:none;margin-bottom:1.5rem;">
+        <li style="padding:.4rem 0;display:flex;gap:.8rem;"><span style="color:var(--accent);">→</span><span>Real-time inventory visibility has gone from a "nice to have" to a survival requirement</span></li>
+        <li style="padding:.4rem 0;display:flex;gap:.8rem;"><span style="color:var(--accent);">→</span><span>Fleet and warehouse operations are now being run off live data platforms, not yesterday's reports</span></li>
+        <li style="padding:.4rem 0;display:flex;gap:.8rem;"><span style="color:var(--accent);">→</span><span>The gap between a retailer's digital experience and their physical supply chain is finally closing</span></li>
+      </ul>
+      <p>We used to talk about "digital transformation" like it was a destination. It's not. <strong style="color:var(--white);">It's infrastructure now.</strong> The retailers who figured that out early are widening the gap every quarter.</p>
+      <p>I've spent the last several years deep inside this shift — building and running the cloud-native platforms and operational programmes that make real-time supply chain intelligence possible at Fortune 500 scale.</p>
+      <div class="pull-quote">"The technology is rarely the hard part. The hard part is building the delivery engine around it — the teams, the governance, the cross-functional alignment — that lets the technology actually do what it promises."</div>
+      <p>That's the work I love. And it's the conversation I'm looking forward to having more of here.</p>
+      <p class="article-footer">Originally posted on LinkedIn · April 2025</p>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE MODAL 2 -->
+<div id="articleModal2" class="modal" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="document.getElementById('articleModal2').style.display='none'">✕</button>
+    <div class="section-label">Leadership · Global Teams</div>
+    <h2 style="font-size:1.5rem;font-weight:800;line-height:1.3;margin-bottom:.5rem;">From 80 to 200 Engineers: What I Learned Scaling a Global Delivery Team</h2>
+    <div class="article-meta">By Venkat Giri Babu Undru &nbsp;·&nbsp; May 2025 &nbsp;·&nbsp; 4 min read</div>
+    <div class="article-body">
+      <p>When I took over the PepsiCo infrastructure portfolio at Cognizant, the delivery team had 80 engineers. By the time I handed it over, we had 200+. Spread across North America, India, and multiple time zones. Running a $13M annual programme. With zero major escalations.</p>
+      <p>People ask me: how do you scale a global team without losing quality, culture, or control? Here's what I actually learned.</p>
+      <p class="heading">1. Structure before headcount</p>
+      <p>The biggest mistake I see leaders make when scaling is hiring first and organising second. We did the opposite. Before every ramp-up wave, we defined the operating model — the pods, the ownership boundaries, the escalation paths. When a new engineer joined, they knew exactly where they fit. Confusion is expensive at scale.</p>
+      <p class="heading">2. Invest in your Layer 2 leaders</p>
+      <p>As a programme director, you can't touch every engineer. Your senior managers and team leads are your real multipliers. I spent a disproportionate amount of time developing that layer — coaching them on client communication, decision-making under pressure, and how to run a review without me in the room. That investment compounded.</p>
+      <div class="pull-quote">"Scaling a global team isn't a hiring exercise. It's an organisational design challenge. Most people get the order wrong."</div>
+      <p class="heading">3. Governance is not bureaucracy</p>
+      <p>At 80 people, you can manage by presence. At 200, you manage by system. We built a tight governance cadence — weekly leads sync, bi-weekly delivery reviews, monthly executive QBRs. Every meeting had a clear owner, a fixed agenda, and action items that were tracked. It felt like overhead at first. At scale, it was what kept us aligned.</p>
+      <p class="heading">4. Culture doesn't scale automatically</p>
+      <p>Culture at 80 people is personality-driven. At 200, it has to be intentional. We were explicit about our values: ownership, transparency, client-first. We recognised them publicly. We called out drift when we saw it. The team knew what we stood for — and that held even across time zones and geographies.</p>
+      <p class="article-footer">By Venkat Giri Babu Undru · May 2025</p>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE MODAL 3 -->
+<div id="articleModal3" class="modal" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="document.getElementById('articleModal3').style.display='none'">✕</button>
+    <div class="section-label">Delivery Excellence · Culture</div>
+    <h2 style="font-size:1.5rem;font-weight:800;line-height:1.3;margin-bottom:.5rem;">Zero Escalations for 18 Months: How We Built a Culture of Delivery Accountability</h2>
+    <div class="article-meta">By Venkat Giri Babu Undru &nbsp;·&nbsp; June 2025 &nbsp;·&nbsp; 4 min read</div>
+    <div class="article-body">
+      <p>Eighteen months. No escalations from the client. A managed services contract renewed without a competitive rebid. And a team that trusted each other enough to surface problems internally before they became crises.</p>
+      <p>That result didn't happen by accident. Here's the framework behind it.</p>
+      <p class="heading">Make accountability a system, not a personality</p>
+      <p>Most delivery teams rely on a few high-performers to catch everything. That works — until it doesn't. We built accountability into the operating rhythm instead. Every issue had an owner, a resolution date, and a visible status. The system did the chasing so the managers didn't have to.</p>
+      <p class="heading">Kill the blame culture before it starts</p>
+      <p>The fastest way to stop people surfacing problems early is to punish them when they do. From day one, we separated problem-reporting from performance evaluation. If you raised an issue early, that was a positive signal. If it got escalated to the client because you sat on it — that was a different conversation entirely.</p>
+      <div class="pull-quote">"An escalation to the client means we already failed once internally. Our job is to solve it at the lowest possible level — every single time."</div>
+      <p class="heading">Run tight, predictable executive reviews</p>
+      <p>Our monthly QBRs with PepsiCo IT leadership followed a fixed format — SLA performance, incident trends, upcoming risks, and initiatives in flight. No surprises. The client saw us as predictable, transparent, and in control. That trust is what got the contract renewed without a rebid.</p>
+      <p class="heading">Proactive risk management, not reactive firefighting</p>
+      <p>We maintained a live risk register reviewed weekly at the leads level. Risks that were amber got a mitigation plan within 48 hours. Nothing sat. The team understood that the goal wasn't to look good in the review — it was to have nothing surprising to report. That mindset shift is everything.</p>
+      <p class="article-footer">By Venkat Giri Babu Undru · June 2025</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const PROFILE = `You are an AI assistant on Venkat Giri Babu Undru's personal portfolio website. Answer questions about Venkat based ONLY on the following profile. Be concise, professional, and enthusiastic about his achievements.
+
+NAME: Venkat Giri Babu Undru
+TITLE: Program Director — Cloud, Infrastructure & Service Delivery
+LOCATION: Trenton, New Jersey, USA
+EMAIL: venkat387@gmail.com
+
+SUMMARY: Over 20 years at Cognizant, built and run global IT delivery operations for Fortune 500 clients. A decade at PepsiCo leading a $13M annual infrastructure and cloud programme across 200+ engineers. Specialises in making large, complex programmes predictable — without drama or escalations. Fluent across Azure, AWS, and GCP in actual production environments.
+
+NOTABLE AWARD: Cognizant 25th Anniversary Challenge Coin — awarded to 2,500 of 280,000 employees worldwide (2019).
+
+CURRENT ROLE: Program Director at PepsiCo (via Cognizant), Dec 2022–Present
+- Lead $5M+ cloud-native programme for PepsiCo's North America Transportation & Warehouse
+- Designed real-time supply chain data platform using Kafka, microservices, Azure
+- Renewed $1M/2-year contract without competitive rebid after 18 months above SLA
+- Drove $5M+ in T&M revenue at 30% contribution margin
+
+PREVIOUS ROLES:
+- Sr. Service Delivery Director, PepsiCo (2016–2022): $13M/year portfolio, 80 to 200+ engineers, $5M revenue
+- Program Director, Sensience (2022): $10M growth, 5 to 30 architects in 6 months, 40% margin
+- Operations Manager, Peet's Coffee (2014–2016): $5M budgets, legacy to cloud-native transformation
+- SQL DBA roles at Microsoft and various Cognizant clients (2005–2014)
+
+CERTIFICATIONS: Claude Certified Architect (Anthropic), AWS Solutions Architect Professional, Microsoft Azure Solutions Architect, Google Cloud Professional Cloud Architect, Agentic AI Executive (ServiceNow), MCTS, MCITP, MCDBA, PRINCE2 Foundation & Practitioner, ITIL V3 & V4
+
+EDUCATION: Bachelor of Engineering, Visvesvaraya Technological University (2001–2005)
+
+CORE SKILLS: Operational Excellence, Service Delivery, Digital Transformation, Azure/AWS/GCP, Kafka, Microservices, ITIL, SLA Management, P&L, DevOps, SQL Server, Executive Communication, Global Team Leadership`;
+
+const msgs = [];
+
+async function sendMsg() {
+  const inp = document.getElementById('chatInput');
+  const q = inp.value.trim();
+  if (!q) return;
+  inp.value = '';
+  addMsg(q, 'user');
+  msgs.push({role:'user', content: q});
+  const typing = addTyping();
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        model:'claude-sonnet-4-6',
+        max_tokens:1000,
+        system: PROFILE,
+        messages: msgs
+      })
+    });
+    const data = await res.json();
+    const reply = data.content?.[0]?.text || "I'm having trouble connecting. Please try again.";
+    typing.remove();
+    addMsg(reply, 'bot');
+    msgs.push({role:'assistant', content: reply});
+  } catch(e) {
+    typing.remove();
+    addMsg("Sorry, I'm having trouble connecting right now. Please reach out to Venkat directly at venkat387@gmail.com", 'bot');
+  }
+}
+
+function addMsg(text, type) {
+  const box = document.getElementById('chatMsgs');
+  const d = document.createElement('div');
+  d.className = `msg ${type}`;
+  d.textContent = text;
+  box.appendChild(d);
+  box.scrollTop = box.scrollHeight;
+  return d;
+}
+
+function addTyping() {
+  const box = document.getElementById('chatMsgs');
+  const d = document.createElement('div');
+  d.className = 'msg bot';
+  d.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+  box.appendChild(d);
+  box.scrollTop = box.scrollHeight;
+  return d;
+}
+
+function askChip(el) {
+  document.getElementById('chatInput').value = el.textContent;
+  sendMsg();
+}
+</script>
+</body>
+</html>
