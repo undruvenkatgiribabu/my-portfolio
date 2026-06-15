@@ -7,26 +7,17 @@
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
   :root{
-    --navy:#e8f4f8;
-    --dark:#ddeef5;
-    --accent:#0077b6;
-    --accent2:#0096c7;
-    --gold:#b07d00;
-    --white:#0a1628;
-    --gray:#4a6070;
-    --card:#f0f8fc;
-    --cardborder:#c0dce8;
+    --navy:#e8f4f8;--dark:#ddeef5;--accent:#0077b6;--accent2:#0096c7;
+    --gold:#b07d00;--white:#0a1628;--gray:#4a6070;--card:#f0f8fc;--cardborder:#c0dce8;
   }
   html{scroll-behavior:smooth;}
   body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--navy);color:var(--white);line-height:1.7;}
-
   nav{position:fixed;top:0;width:100%;background:rgba(232,244,248,0.97);backdrop-filter:blur(10px);z-index:1000;border-bottom:1px solid rgba(0,119,182,0.2);}
   .nav-inner{max-width:1200px;margin:auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;}
   .logo{font-size:1rem;font-weight:700;color:var(--accent);letter-spacing:2px;text-transform:uppercase;}
   .nav-links{display:flex;gap:1.5rem;list-style:none;}
   .nav-links a{color:var(--gray);text-decoration:none;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;transition:color .3s;}
   .nav-links a:hover{color:var(--accent);}
-
   .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;background:linear-gradient(135deg,#cce8f4 0%,#ddeef5 50%,#c8e5f2 100%);position:relative;overflow:hidden;}
   .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(0,119,182,0.08) 0%,transparent 60%);}
   .hero-photo{width:150px;height:150px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);animation:photoglow 3s ease-in-out infinite alternate;margin-bottom:1.8rem;display:block;margin-left:auto;margin-right:auto;}
@@ -38,18 +29,16 @@
   .hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
   .btn{padding:.8rem 2rem;border-radius:4px;font-size:.9rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all .3s;}
   .btn-primary{background:var(--accent);color:#fff;}
-  .btn-primary:hover{background:#005a8e;color:#fff;}
+  .btn-primary:hover{background:#005a8e;}
   .btn-outline{border:1px solid var(--accent);color:var(--accent);}
   .btn-outline:hover{background:var(--accent);color:#fff;}
   .hero-stats{display:flex;gap:3rem;justify-content:center;margin-top:4rem;flex-wrap:wrap;}
   .stat-num{font-size:2.5rem;font-weight:800;color:var(--accent);}
   .stat-label{font-size:.75rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px;}
-
   section{padding:5rem 2rem;}
   .container{max-width:1100px;margin:auto;}
   .section-label{font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;}
   .section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:3rem;line-height:1.2;color:#0a1628;}
-
   #about{background:var(--dark);}
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
   .about-text p{color:#3a5060;margin-bottom:1.2rem;font-size:1.05rem;}
@@ -57,7 +46,6 @@
   .highlight-box p{color:var(--gold);font-weight:600;font-size:.95rem;margin:0;}
   .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
   .skill-tag{background:rgba(0,119,182,0.08);border:1px solid rgba(0,119,182,0.25);padding:.5rem 1rem;border-radius:4px;font-size:.82rem;color:var(--accent);text-align:center;}
-
   #achievements{background:var(--navy);}
   .ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;}
   .ach-card{background:var(--card);border:1px solid var(--cardborder);border-radius:8px;padding:2rem;position:relative;overflow:hidden;transition:transform .3s,border-color .3s;box-shadow:0 2px 8px rgba(0,119,182,0.06);}
@@ -66,14 +54,12 @@
   .ach-num{font-size:2.2rem;font-weight:800;color:var(--accent);margin-bottom:.3rem;}
   .ach-card h3{font-size:1.1rem;font-weight:700;margin-bottom:.8rem;color:#0a1628;}
   .ach-card p{color:var(--gray);font-size:.9rem;}
-
   #expertise{background:var(--dark);}
   .exp-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
   .exp-col h3{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;padding-bottom:.5rem;border-bottom:1px solid rgba(176,125,0,0.3);}
   .exp-col ul{list-style:none;}
   .exp-col li{color:#3a5060;padding:.4rem 0;font-size:.92rem;display:flex;gap:.5rem;}
   .exp-col li::before{content:'▸';color:var(--accent);flex-shrink:0;}
-
   #experience{background:var(--navy);}
   .timeline{position:relative;padding-left:2rem;}
   .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent2),transparent);}
@@ -85,7 +71,6 @@
   .tl-bullets{list-style:none;}
   .tl-bullets li{color:#3a5060;font-size:.9rem;padding:.3rem 0;display:flex;gap:.7rem;}
   .tl-bullets li::before{content:'▸';color:var(--accent);flex-shrink:0;}
-
   #certifications{background:var(--dark);}
   .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;}
   .cert-card{background:var(--card);border:1px solid var(--cardborder);border-radius:8px;padding:1.8rem;text-align:center;transition:all .3s;box-shadow:0 2px 8px rgba(0,119,182,0.05);}
@@ -93,23 +78,19 @@
   .cert-icon{font-size:2.5rem;margin-bottom:1rem;}
   .cert-card h3{font-size:1rem;font-weight:700;margin-bottom:.5rem;color:#0a1628;}
   .cert-card p{font-size:.82rem;color:var(--gray);}
-
   #education{background:var(--navy);}
-  .edu-card{background:var(--card);border-radius:8px;padding:1.8rem;border-top:3px solid var(--accent2);display:inline-block;min-width:260px;border:1px solid var(--cardborder);border-top:3px solid var(--accent2);}
+  .edu-card{background:var(--card);border-radius:8px;padding:1.8rem;border-top:3px solid var(--accent2);display:inline-block;min-width:260px;border:1px solid var(--cardborder);}
   .edu-card h3{font-size:1rem;font-weight:700;margin-bottom:.3rem;color:#0a1628;}
   .edu-card .inst{color:var(--gold);font-size:.85rem;}
   .edu-card .yr{color:var(--gray);font-size:.8rem;}
-
   #articles{background:var(--dark);}
   .article-card{background:var(--card);border:1px solid var(--cardborder);border-radius:8px;overflow:hidden;cursor:pointer;transition:transform .3s,border-color .3s;position:relative;box-shadow:0 2px 8px rgba(0,119,182,0.06);}
   .article-card:hover{transform:translateY(-4px);border-color:var(--accent);}
   .article-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
-
   #testimonials{background:var(--navy);}
   .testi-card{background:var(--card);border:1px solid var(--cardborder);border-radius:8px;padding:2rem;position:relative;overflow:hidden;transition:transform .3s,border-color .3s;box-shadow:0 2px 8px rgba(0,119,182,0.06);}
   .testi-card:hover{transform:translateY(-4px);border-color:var(--accent);}
   .testi-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
-
   #chat-section{background:linear-gradient(135deg,#cce8f4,#ddeef5);}
   .chat-wrap{max-width:760px;margin:auto;}
   .chat-intro{text-align:center;margin-bottom:2.5rem;}
@@ -133,19 +114,28 @@
   .chat-suggestions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.2rem;justify-content:center;}
   .chip{background:rgba(0,119,182,0.08);border:1px solid rgba(0,119,182,0.25);color:var(--accent);padding:.4rem .9rem;border-radius:20px;font-size:.78rem;cursor:pointer;transition:all .3s;}
   .chip:hover{background:var(--accent);color:#fff;}
-
   #contact{background:var(--dark);text-align:center;}
   .contact-grid{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;}
-  .contact-item{background:var(--card);border:1px solid var(--cardborder);border-radius:8px;padding:1.5rem 2.5rem;transition:all .3s;box-shadow:0 2px 8px rgba(0,119,182,0.05);}
+  .contact-item{background:var(--card);border:1px solid var(--cardborder);border-radius:8px;padding:1.5rem 2.5rem;transition:all .3s;}
   .contact-item:hover{border-color:var(--accent);transform:translateY(-3px);}
   .contact-item a{color:#0a1628;text-decoration:none;}
   .ci-label{font-size:.7rem;color:var(--gray);letter-spacing:1px;text-transform:uppercase;margin-bottom:.3rem;}
-
   .modal{display:none;position:fixed;inset:0;background:rgba(0,50,80,0.5);z-index:2000;align-items:center;justify-content:center;padding:2rem;}
-  .modal-inner{background:#fff;border:1px solid rgba(0,119,182,0.2);border-radius:12px;max-width:700px;width:100%;max-height:85vh;overflow-y:auto;padding:2.5rem;position:relative;box-shadow:0 20px 60px rgba(0,119,182,0.15);}
+  .modal-inner{background:#fff;border:1px solid rgba(0,119,182,0.2);border-radius:12px;max-width:740px;width:100%;max-height:88vh;overflow-y:auto;padding:2.5rem;position:relative;box-shadow:0 20px 60px rgba(0,119,182,0.15);}
   .modal-close{position:absolute;top:1rem;right:1rem;background:transparent;border:1px solid #aaa;color:#666;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;}
-  .pull-quote{background:rgba(0,119,182,0.06);border-left:3px solid var(--accent);padding:1.2rem 1.5rem;border-radius:4px;margin:1.5rem 0;color:#0a1628;font-size:1.05rem;font-style:italic;}
-
+  .pull-quote{background:rgba(0,119,182,0.06);border-left:3px solid var(--accent);padding:1.2rem 1.5rem;border-radius:0;margin:1.5rem 0;color:#0a1628;font-size:1.05rem;font-style:italic;}
+  .ab{color:#2a4050;font-size:.97rem;line-height:1.9;}
+  .ab p{margin-bottom:1.2rem;}
+  .ab h3{font-weight:700;color:#0a1628;margin-bottom:.5rem;font-size:1rem;}
+  .ab ul{list-style:none;margin-bottom:1.2rem;}
+  .ab ul li{padding:.35rem 0;display:flex;gap:.8rem;border-bottom:1px solid rgba(0,119,182,0.08);}
+  .ab ul li:last-child{border-bottom:none;}
+  .ab ul li span.bk{color:var(--accent);flex-shrink:0;}
+  .bucket{background:#fff;border:1px solid #c0dce8;border-radius:8px;overflow:hidden;margin-bottom:12px;}
+  .bucket-hd{padding:.6rem 1rem;display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;}
+  .bucket-bd{padding:.75rem 1rem;display:flex;flex-direction:column;gap:6px;}
+  .bucket-bd li{font-size:.87rem;color:#2a4050;line-height:1.5;display:flex;gap:8px;list-style:none;}
+  .bucket-bd li::before{content:'✓';color:#0077b6;flex-shrink:0;font-weight:700;}
   footer{background:var(--dark);border-top:1px solid rgba(0,119,182,0.15);text-align:center;padding:2rem;color:var(--gray);font-size:.8rem;}
   @media(max-width:768px){.about-grid,.exp-cols{grid-template-columns:1fr;}.nav-links{display:none;}.hero-stats{gap:1.5rem;}}
 </style>
@@ -169,6 +159,7 @@
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div>
     <img src="photo.jpg" class="hero-photo" alt="Venkat Giri Babu Undru" onerror="this.style.display='none'"/>
@@ -188,6 +179,7 @@
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <div class="about-grid">
@@ -214,6 +206,7 @@
   </div>
 </section>
 
+<!-- ACHIEVEMENTS -->
 <section id="achievements">
   <div class="container">
     <div class="section-label">Key Achievements</div>
@@ -229,6 +222,7 @@
   </div>
 </section>
 
+<!-- EXPERTISE -->
 <section id="expertise">
   <div class="container">
     <div class="section-label">Expertise</div>
@@ -241,6 +235,7 @@
   </div>
 </section>
 
+<!-- EXPERIENCE -->
 <section id="experience">
   <div class="container">
     <div class="section-label">Career History</div>
@@ -317,6 +312,7 @@
   </div>
 </section>
 
+<!-- CERTIFICATIONS -->
 <section id="certifications">
   <div class="container">
     <div class="section-label">Credentials</div>
@@ -335,6 +331,7 @@
   </div>
 </section>
 
+<!-- EDUCATION -->
 <section id="education">
   <div class="container">
     <div class="section-label">Education</div>
@@ -343,6 +340,7 @@
   </div>
 </section>
 
+<!-- ARTICLES -->
 <section id="articles">
   <div class="container">
     <div class="section-label">Insights & Thought Leadership</div>
@@ -350,53 +348,37 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;">
       <div class="article-card" onclick="document.getElementById('am1').style.display='flex'">
         <div style="height:140px;background:linear-gradient(135deg,#0a2a4a,#0077b6);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">🏭</div>
-        <div style="padding:1.5rem;">
-          <div style="font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;">Supply Chain · Cloud · Transformation</div>
-          <h3 style="font-size:1rem;font-weight:700;line-height:1.4;margin-bottom:.8rem;color:#0a1628;">The Retailers Who Figured It Out Early Are Widening the Gap Every Quarter</h3>
-          <p style="color:var(--gray);font-size:.85rem;">What's happening at the intersection of retail, supply chain, and technology is one of the most exciting shifts in 20 years.</p>
-          <div style="margin-top:1.2rem;display:flex;justify-content:space-between;"><span style="font-size:.75rem;color:var(--gray);">April 2025</span><span style="color:var(--accent);font-weight:600;">Read →</span></div>
-        </div>
+        <div style="padding:1.5rem;"><div style="font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;">Supply Chain · Cloud · Transformation</div><h3 style="font-size:1rem;font-weight:700;line-height:1.4;margin-bottom:.8rem;color:#0a1628;">The Retailers Who Figured It Out Early Are Widening the Gap Every Quarter</h3><p style="color:var(--gray);font-size:.85rem;">What's happening at the intersection of retail, supply chain, and technology is one of the most exciting shifts in 20 years.</p><div style="margin-top:1.2rem;display:flex;justify-content:space-between;"><span style="font-size:.75rem;color:var(--gray);">April 2025</span><span style="color:var(--accent);font-weight:600;">Read →</span></div></div>
       </div>
       <div class="article-card" onclick="document.getElementById('am2').style.display='flex'">
         <div style="height:140px;background:linear-gradient(135deg,#0a2a1a,#007744);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">🌍</div>
-        <div style="padding:1.5rem;">
-          <div style="font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;">Leadership · Global Teams</div>
-          <h3 style="font-size:1rem;font-weight:700;line-height:1.4;margin-bottom:.8rem;color:#0a1628;">From 80 to 200 Engineers: What I Learned Scaling a Global Delivery Team</h3>
-          <p style="color:var(--gray);font-size:.85rem;">Scaling a global team isn't just a hiring exercise. It's an organisational design challenge.</p>
-          <div style="margin-top:1.2rem;display:flex;justify-content:space-between;"><span style="font-size:.75rem;color:var(--gray);">May 2025</span><span style="color:var(--accent);font-weight:600;">Read →</span></div>
-        </div>
+        <div style="padding:1.5rem;"><div style="font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;">Leadership · Global Teams</div><h3 style="font-size:1rem;font-weight:700;line-height:1.4;margin-bottom:.8rem;color:#0a1628;">From 80 to 200 Engineers: What I Learned Scaling a Global Delivery Team</h3><p style="color:var(--gray);font-size:.85rem;">Scaling a global team isn't just a hiring exercise. It's an organisational design challenge.</p><div style="margin-top:1.2rem;display:flex;justify-content:space-between;"><span style="font-size:.75rem;color:var(--gray);">May 2025</span><span style="color:var(--accent);font-weight:600;">Read →</span></div></div>
       </div>
       <div class="article-card" onclick="document.getElementById('am3').style.display='flex'">
         <div style="height:140px;background:linear-gradient(135deg,#1a0a2a,#5500aa);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">🎯</div>
-        <div style="padding:1.5rem;">
-          <div style="font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;">Delivery Excellence · Culture</div>
-          <h3 style="font-size:1rem;font-weight:700;line-height:1.4;margin-bottom:.8rem;color:#0a1628;">Zero Escalations for 18 Months: How We Built a Culture of Delivery Accountability</h3>
-          <p style="color:var(--gray);font-size:.85rem;">Eighteen months. No escalations. Here's the framework, the mindset, and the hard lessons.</p>
-          <div style="margin-top:1.2rem;display:flex;justify-content:space-between;"><span style="font-size:.75rem;color:var(--gray);">June 2025</span><span style="color:var(--accent);font-weight:600;">Read →</span></div>
-        </div>
+        <div style="padding:1.5rem;"><div style="font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;">Delivery Excellence · Culture</div><h3 style="font-size:1rem;font-weight:700;line-height:1.4;margin-bottom:.8rem;color:#0a1628;">Zero Escalations for 18 Months: How We Built a Culture of Delivery Accountability</h3><p style="color:var(--gray);font-size:.85rem;">Eighteen months. No escalations. Here's the framework, the mindset, and the hard lessons.</p><div style="margin-top:1.2rem;display:flex;justify-content:space-between;"><span style="font-size:.75rem;color:var(--gray);">June 2025</span><span style="color:var(--accent);font-weight:600;">Read →</span></div></div>
       </div>
       <div class="article-card" onclick="document.getElementById('am4').style.display='flex'">
         <div style="height:140px;background:linear-gradient(135deg,#0a1a2a,#004488);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">🏗️</div>
-        <div style="padding:1.5rem;">
-          <div style="font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;">Digital Infrastructure · Transformation</div>
-          <h3 style="font-size:1rem;font-weight:700;line-height:1.4;margin-bottom:.8rem;color:#0a1628;">Why Digital Infrastructure Transformation Is No Longer Optional — And What's Actually Blocking It</h3>
-          <p style="color:var(--gray);font-size:.85rem;">Most organisations know they need to modernise. Very few understand what's actually standing in the way.</p>
-          <div style="margin-top:1.2rem;display:flex;justify-content:space-between;"><span style="font-size:.75rem;color:var(--gray);">November 2023</span><span style="color:var(--accent);font-weight:600;">Read →</span></div>
-        </div>
+        <div style="padding:1.5rem;"><div style="font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;">Digital Infrastructure · Transformation</div><h3 style="font-size:1rem;font-weight:700;line-height:1.4;margin-bottom:.8rem;color:#0a1628;">Why Digital Infrastructure Transformation Is No Longer Optional — And What's Actually Blocking It</h3><p style="color:var(--gray);font-size:.85rem;">Most organisations know they need to modernise. Very few understand what's actually standing in the way.</p><div style="margin-top:1.2rem;display:flex;justify-content:space-between;"><span style="font-size:.75rem;color:var(--gray);">November 2023</span><span style="color:var(--accent);font-weight:600;">Read →</span></div></div>
       </div>
       <div class="article-card" onclick="document.getElementById('am5').style.display='flex'">
         <div style="height:140px;background:linear-gradient(135deg,#0a2a1a,#006633);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">⚙️</div>
-        <div style="padding:1.5rem;">
-          <div style="font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;">Modern Problems · Cloud Solutions</div>
-          <h3 style="font-size:1rem;font-weight:700;line-height:1.4;margin-bottom:.8rem;color:#0a1628;">Five Modern Enterprise Problems That Cloud-Native Infrastructure Actually Solves</h3>
-          <p style="color:var(--gray);font-size:.85rem;">Cloud isn't a cost play. Used right, it's the answer to the five biggest operational headaches enterprises face today.</p>
-          <div style="margin-top:1.2rem;display:flex;justify-content:space-between;"><span style="font-size:.75rem;color:var(--gray);">March 2024</span><span style="color:var(--accent);font-weight:600;">Read →</span></div>
-        </div>
+        <div style="padding:1.5rem;"><div style="font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;">Modern Problems · Cloud Solutions</div><h3 style="font-size:1rem;font-weight:700;line-height:1.4;margin-bottom:.8rem;color:#0a1628;">Five Modern Enterprise Problems That Cloud-Native Infrastructure Actually Solves</h3><p style="color:var(--gray);font-size:.85rem;">Cloud isn't a cost play. Used right, it's the answer to the five biggest operational headaches enterprises face today.</p><div style="margin-top:1.2rem;display:flex;justify-content:space-between;"><span style="font-size:.75rem;color:var(--gray);">March 2024</span><span style="color:var(--accent);font-weight:600;">Read →</span></div></div>
+      </div>
+      <div class="article-card" onclick="document.getElementById('am6').style.display='flex'">
+        <div style="height:140px;background:linear-gradient(135deg,#1a0a0a,#880000);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">📊</div>
+        <div style="padding:1.5rem;"><div style="font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;">ServiceNow · MSP Governance · SLA</div><h3 style="font-size:1rem;font-weight:700;line-height:1.4;margin-bottom:.8rem;color:#0a1628;">ServiceNow as the Bible for MSP Performance: How to Govern Multi-Year Contracts Without Losing Strategic Partners</h3><p style="color:var(--gray);font-size:.85rem;">Most enterprises track MSP performance in spreadsheets. Here's why ServiceNow should be your single source of truth.</p><div style="margin-top:1.2rem;display:flex;justify-content:space-between;"><span style="font-size:.75rem;color:var(--gray);">January 2024</span><span style="color:var(--accent);font-weight:600;">Read →</span></div></div>
+      </div>
+      <div class="article-card" onclick="document.getElementById('am7').style.display='flex'">
+        <div style="height:140px;background:linear-gradient(135deg,#0a1a3a,#003380);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">🚦</div>
+        <div style="padding:1.5rem;"><div style="font-size:.7rem;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;">Delivery · Operations · Transformation</div><h3 style="font-size:1rem;font-weight:700;line-height:1.4;margin-bottom:.8rem;color:#0a1628;">Move to Production: Why the Hardest Part of Any Transformation Programme Is the Last 30 Days</h3><p style="color:var(--gray);font-size:.85rem;">Delivery and operations see the same programme through completely different lenses. Here's the governance framework that bridges them.</p><div style="margin-top:1.2rem;display:flex;justify-content:space-between;"><span style="font-size:.75rem;color:var(--gray);">February 2024</span><span style="color:var(--accent);font-weight:600;">Read →</span></div></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="container">
     <div class="section-label">What Leaders Say</div>
@@ -416,6 +398,7 @@
   </div>
 </section>
 
+<!-- AI CHAT -->
 <section id="chat-section">
   <div class="container">
     <div class="chat-wrap">
@@ -443,6 +426,7 @@
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <div class="section-label">Get In Touch</div>
@@ -458,135 +442,42 @@
 
 <footer><p>© 2025 Venkat Giri Babu Undru · All Rights Reserved</p></footer>
 
-<!-- ARTICLE MODAL 1 -->
-<div id="am1" class="modal" onclick="if(event.target===this)this.style.display='none'">
-  <div class="modal-inner">
-    <button class="modal-close" onclick="document.getElementById('am1').style.display='none'">✕</button>
-    <div class="section-label">Supply Chain · Cloud · Transformation</div>
-    <h2 style="font-size:1.5rem;font-weight:800;line-height:1.3;margin-bottom:.5rem;color:#0a1628;">The Retailers Who Figured It Out Early Are Widening the Gap Every Quarter</h2>
-    <div style="font-size:.8rem;color:var(--gray);margin-bottom:2rem;">Venkat Giri Babu Undru · April 2025 · 3 min read</div>
-    <div style="color:#2a4050;font-size:.97rem;line-height:1.9;">
-      <p style="margin-bottom:1.2rem;">After a long time away from LinkedIn, I'm excited to be back — and I couldn't think of a better moment to return than right now.</p>
-      <p style="margin-bottom:1.2rem;">Because what's happening at the intersection of retail, supply chain, and technology is genuinely one of the most exciting shifts I've seen in 20 years.</p>
-      <p style="margin-bottom:.8rem;font-weight:700;color:#0a1628;">Think about what's changed in the last 3 years alone:</p>
-      <ul style="list-style:none;margin-bottom:1.5rem;">
-        <li style="padding:.4rem 0;display:flex;gap:.8rem;"><span style="color:var(--accent);">→</span><span>Real-time inventory visibility has gone from a "nice to have" to a survival requirement</span></li>
-        <li style="padding:.4rem 0;display:flex;gap:.8rem;"><span style="color:var(--accent);">→</span><span>Fleet and warehouse operations are now being run off live data platforms, not yesterday's reports</span></li>
-        <li style="padding:.4rem 0;display:flex;gap:.8rem;"><span style="color:var(--accent);">→</span><span>The gap between a retailer's digital experience and their physical supply chain is finally closing</span></li>
-      </ul>
-      <p style="margin-bottom:1.2rem;">We used to talk about "digital transformation" like it was a destination. It's not. <strong style="color:#0a1628;">It's infrastructure now.</strong></p>
-      <div class="pull-quote">"The technology is rarely the hard part. The hard part is building the delivery engine around it — the teams, the governance, the cross-functional alignment."</div>
-      <p style="margin-bottom:1.2rem;">I've spent the last several years deep inside this shift — building and running the cloud-native platforms and operational programmes that make real-time supply chain intelligence possible at Fortune 500 scale.</p>
-      <p style="color:var(--gray);font-size:.85rem;">Originally posted on LinkedIn · April 2025</p>
-    </div>
-  </div>
-</div>
+<!-- ==================== ARTICLE MODALS ==================== -->
+<div id="am1" class="modal" onclick="if(event.target===this)this.style.display='none'"><div class="modal-inner"><button class="modal-close" onclick="document.getElementById('am1').style.display='none'">✕</button><div class="section-label">Supply Chain · Cloud · Transformation</div><h2 style="font-size:1.4rem;font-weight:800;line-height:1.3;margin-bottom:.5rem;color:#0a1628;">The Retailers Who Figured It Out Early Are Widening the Gap Every Quarter</h2><div style="font-size:.8rem;color:var(--gray);margin-bottom:2rem;">Venkat Giri Babu Undru · April 2025 · 3 min read</div><div class="ab"><p>After a long time away from LinkedIn, I'm excited to be back — and I couldn't think of a better moment to return than right now.</p><p>Because what's happening at the intersection of retail, supply chain, and technology is genuinely one of the most exciting shifts I've seen in 20 years.</p><h3>Think about what's changed in the last 3 years alone:</h3><ul><li><span class="bk">→</span><span>Real-time inventory visibility has gone from a "nice to have" to a survival requirement</span></li><li><span class="bk">→</span><span>Fleet and warehouse operations are now being run off live data platforms, not yesterday's reports</span></li><li><span class="bk">→</span><span>The gap between a retailer's digital experience and their physical supply chain is finally closing</span></li></ul><p>We used to talk about "digital transformation" like it was a destination. It's not. <strong>It's infrastructure now.</strong> The retailers who figured that out early are widening the gap every quarter.</p><div class="pull-quote">"The technology is rarely the hard part. The hard part is building the delivery engine around it — the teams, the governance, the cross-functional alignment — that lets the technology actually do what it promises."</div><p>I've spent the last several years deep inside this shift — building and running the cloud-native platforms and operational programmes that make real-time supply chain intelligence possible at Fortune 500 scale. That's the work I love.</p><p style="color:var(--gray);font-size:.85rem;">Originally posted on LinkedIn · April 2025</p></div></div></div>
 
-<!-- ARTICLE MODAL 2 -->
-<div id="am2" class="modal" onclick="if(event.target===this)this.style.display='none'">
-  <div class="modal-inner">
-    <button class="modal-close" onclick="document.getElementById('am2').style.display='none'">✕</button>
-    <div class="section-label">Leadership · Global Teams</div>
-    <h2 style="font-size:1.5rem;font-weight:800;line-height:1.3;margin-bottom:.5rem;color:#0a1628;">From 80 to 200 Engineers: What I Learned Scaling a Global Delivery Team</h2>
-    <div style="font-size:.8rem;color:var(--gray);margin-bottom:2rem;">Venkat Giri Babu Undru · May 2025 · 4 min read</div>
-    <div style="color:#2a4050;font-size:.97rem;line-height:1.9;">
-      <p style="margin-bottom:1.2rem;">When I took over the infrastructure portfolio, the delivery team had 80 engineers. By the time I handed it over, we had 200+. Running a $13M annual programme. With zero major escalations.</p>
-      <p style="margin-bottom:.8rem;font-weight:700;color:#0a1628;">1. Structure before headcount</p>
-      <p style="margin-bottom:1.2rem;">Before every ramp-up wave, we defined the operating model — the pods, the ownership boundaries, the escalation paths. When a new engineer joined, they knew exactly where they fit.</p>
-      <p style="margin-bottom:.8rem;font-weight:700;color:#0a1628;">2. Invest in your Layer 2 leaders</p>
-      <p style="margin-bottom:1.2rem;">Your senior managers and team leads are your real multipliers. I spent a disproportionate amount of time developing that layer. That investment compounded.</p>
-      <div class="pull-quote">"Scaling a global team isn't a hiring exercise. It's an organisational design challenge. Most people get the order wrong."</div>
-      <p style="margin-bottom:.8rem;font-weight:700;color:#0a1628;">3. Governance is not bureaucracy</p>
-      <p style="margin-bottom:1.2rem;">At 80 people, you manage by presence. At 200, you manage by system. Weekly leads sync, bi-weekly delivery reviews, monthly executive QBRs — every meeting had a clear owner and tracked action items.</p>
-      <p style="margin-bottom:.8rem;font-weight:700;color:#0a1628;">4. Culture doesn't scale automatically</p>
-      <p style="margin-bottom:1.2rem;">We were explicit about our values: ownership, transparency, client-first. We recognised them publicly and called out drift when we saw it.</p>
-      <p style="color:var(--gray);font-size:.85rem;">By Venkat Giri Babu Undru · May 2025</p>
-    </div>
-  </div>
-</div>
+<div id="am2" class="modal" onclick="if(event.target===this)this.style.display='none'"><div class="modal-inner"><button class="modal-close" onclick="document.getElementById('am2').style.display='none'">✕</button><div class="section-label">Leadership · Global Teams</div><h2 style="font-size:1.4rem;font-weight:800;line-height:1.3;margin-bottom:.5rem;color:#0a1628;">From 80 to 200 Engineers: What I Learned Scaling a Global Delivery Team</h2><div style="font-size:.8rem;color:var(--gray);margin-bottom:2rem;">Venkat Giri Babu Undru · May 2025 · 4 min read</div><div class="ab"><p>When I took over the infrastructure portfolio, the delivery team had 80 engineers. By the time I handed it over, we had 200+. Running a $13M annual programme. With zero major escalations.</p><h3>1. Structure before headcount</h3><p>Before every ramp-up wave, we defined the operating model — the pods, the ownership boundaries, the escalation paths. When a new engineer joined, they knew exactly where they fit. Confusion is expensive at scale.</p><h3>2. Invest in your Layer 2 leaders</h3><p>Your senior managers and team leads are your real multipliers. I spent a disproportionate amount of time developing that layer — coaching them on client communication and decision-making under pressure. That investment compounded.</p><div class="pull-quote">"Scaling a global team isn't a hiring exercise. It's an organisational design challenge. Most people get the order wrong."</div><h3>3. Governance is not bureaucracy</h3><p>At 80 people, you manage by presence. At 200, you manage by system. Weekly leads sync, bi-weekly delivery reviews, monthly executive QBRs — every meeting had a clear owner and tracked action items.</p><h3>4. Culture doesn't scale automatically</h3><p>We were explicit about our values: ownership, transparency, client-first. We recognised them publicly and called out drift when we saw it. The team knew what we stood for — and that held even across time zones.</p><p style="color:var(--gray);font-size:.85rem;">By Venkat Giri Babu Undru · May 2025</p></div></div></div>
 
-<!-- ARTICLE MODAL 3 -->
-<div id="am3" class="modal" onclick="if(event.target===this)this.style.display='none'">
-  <div class="modal-inner">
-    <button class="modal-close" onclick="document.getElementById('am3').style.display='none'">✕</button>
-    <div class="section-label">Delivery Excellence · Culture</div>
-    <h2 style="font-size:1.5rem;font-weight:800;line-height:1.3;margin-bottom:.5rem;color:#0a1628;">Zero Escalations for 18 Months: How We Built a Culture of Delivery Accountability</h2>
-    <div style="font-size:.8rem;color:var(--gray);margin-bottom:2rem;">Venkat Giri Babu Undru · June 2025 · 4 min read</div>
-    <div style="color:#2a4050;font-size:.97rem;line-height:1.9;">
-      <p style="margin-bottom:1.2rem;">Eighteen months. No escalations from the client. A managed services contract renewed without a competitive rebid. That result didn't happen by accident.</p>
-      <p style="margin-bottom:.8rem;font-weight:700;color:#0a1628;">Make accountability a system, not a personality</p>
-      <p style="margin-bottom:1.2rem;">Every issue had an owner, a resolution date, and a visible status. The system did the chasing so the managers didn't have to.</p>
-      <p style="margin-bottom:.8rem;font-weight:700;color:#0a1628;">Kill the blame culture before it starts</p>
-      <p style="margin-bottom:1.2rem;">We separated problem-reporting from performance evaluation. If you raised an issue early, that was a positive signal.</p>
-      <div class="pull-quote">"An escalation to the client means we already failed once internally. Our job is to solve it at the lowest possible level — every single time."</div>
-      <p style="margin-bottom:.8rem;font-weight:700;color:#0a1628;">Run tight, predictable executive reviews</p>
-      <p style="margin-bottom:1.2rem;">Our monthly QBRs followed a fixed format — SLA performance, incident trends, upcoming risks. No surprises. That trust is what got the contract renewed without a rebid.</p>
-      <p style="color:var(--gray);font-size:.85rem;">By Venkat Giri Babu Undru · June 2025</p>
-    </div>
-  </div>
-</div>
+<div id="am3" class="modal" onclick="if(event.target===this)this.style.display='none'"><div class="modal-inner"><button class="modal-close" onclick="document.getElementById('am3').style.display='none'">✕</button><div class="section-label">Delivery Excellence · Culture</div><h2 style="font-size:1.4rem;font-weight:800;line-height:1.3;margin-bottom:.5rem;color:#0a1628;">Zero Escalations for 18 Months: How We Built a Culture of Delivery Accountability</h2><div style="font-size:.8rem;color:var(--gray);margin-bottom:2rem;">Venkat Giri Babu Undru · June 2025 · 4 min read</div><div class="ab"><p>Eighteen months. No escalations from the client. A managed services contract renewed without a competitive rebid. That result didn't happen by accident.</p><h3>Make accountability a system, not a personality</h3><p>Every issue had an owner, a resolution date, and a visible status. The system did the chasing so the managers didn't have to.</p><h3>Kill the blame culture before it starts</h3><p>We separated problem-reporting from performance evaluation. If you raised an issue early, that was a positive signal. If it got escalated to the client because you sat on it — that was a different conversation entirely.</p><div class="pull-quote">"An escalation to the client means we already failed once internally. Our job is to solve it at the lowest possible level — every single time."</div><h3>Run tight, predictable executive reviews</h3><p>Our monthly QBRs followed a fixed format — SLA performance, incident trends, upcoming risks. No surprises. That trust is what got the contract renewed without a rebid.</p><h3>Proactive risk management, not reactive firefighting</h3><p>We maintained a live risk register reviewed weekly. Risks that were amber got a mitigation plan within 48 hours. Nothing sat.</p><p style="color:var(--gray);font-size:.85rem;">By Venkat Giri Babu Undru · June 2025</p></div></div></div>
 
-<!-- ARTICLE MODAL 4 -->
-<div id="am4" class="modal" onclick="if(event.target===this)this.style.display='none'">
-  <div class="modal-inner">
-    <button class="modal-close" onclick="document.getElementById('am4').style.display='none'">✕</button>
-    <div class="section-label">Digital Infrastructure · Transformation</div>
-    <h2 style="font-size:1.5rem;font-weight:800;line-height:1.3;margin-bottom:.5rem;color:#0a1628;">Why Digital Infrastructure Transformation Is No Longer Optional — And What's Actually Blocking It</h2>
-    <div style="font-size:.8rem;color:var(--gray);margin-bottom:2rem;">Venkat Giri Babu Undru · November 2023 · 5 min read</div>
-    <div style="color:#2a4050;font-size:.97rem;line-height:1.9;">
-      <p style="margin-bottom:1.2rem;">Every CIO I speak to knows that digital infrastructure transformation isn't a future priority. It's an overdue one. Yet most large organisations are still running on a patchwork of legacy systems, hybrid environments held together by institutional knowledge, and technical debt that compounds every quarter.</p>
-      <p style="margin-bottom:.8rem;font-weight:700;color:#0a1628;">The cost of standing still is invisible — until it isn't</p>
-      <p style="margin-bottom:1.2rem;">Legacy infrastructure doesn't send you a bill. It costs you in slower release cycles, brittle integrations, weekend incidents, and engineers spending 60% of their time keeping lights on instead of building value. The cost is real — it's just diffuse enough that it never makes the board agenda. Until a competitor moves faster, or a critical system fails at the worst possible moment.</p>
-      <p style="margin-bottom:.8rem;font-weight:700;color:#0a1628;">What's actually blocking transformation</p>
-      <p style="margin-bottom:.6rem;">In my experience running large infrastructure programmes at Fortune 500 scale, the blockers are almost always organisational:</p>
-      <ul style="list-style:none;margin-bottom:1.5rem;">
-        <li style="padding:.5rem 0;display:flex;gap:.8rem;"><span style="color:var(--accent);font-weight:700;">01</span><span><strong style="color:#0a1628;">Fear of disruption over fear of stagnation.</strong> Teams worry more about breaking something today than falling behind over the next three years.</span></li>
-        <li style="padding:.5rem 0;display:flex;gap:.8rem;"><span style="color:var(--accent);font-weight:700;">02</span><span><strong style="color:#0a1628;">No single owner of the transformation.</strong> When everyone owns it, nobody does. Without a leader with genuine authority and accountability, it stalls.</span></li>
-        <li style="padding:.5rem 0;display:flex;gap:.8rem;"><span style="color:var(--accent);font-weight:700;">03</span><span><strong style="color:#0a1628;">Treating it as a technology project, not a business initiative.</strong> When transformation is owned by IT alone, it gets scoped as a migration. When business co-owns it, it becomes a competitive capability.</span></li>
-      </ul>
-      <div class="pull-quote">"The organisations that will win the next decade are not the ones with the best technology. They are the ones that built the delivery engine to absorb and operationalise that technology faster than anyone else."</div>
-      <p style="margin-bottom:1.2rem;">Start with the outcomes, not the architecture. What does the business need to do in three years that it cannot do today? Work backward from that to the infrastructure capabilities required.</p>
-      <p style="color:var(--gray);font-size:.85rem;">By Venkat Giri Babu Undru · November 2023</p>
-    </div>
-  </div>
-</div>
+<div id="am4" class="modal" onclick="if(event.target===this)this.style.display='none'"><div class="modal-inner"><button class="modal-close" onclick="document.getElementById('am4').style.display='none'">✕</button><div class="section-label">Digital Infrastructure · Transformation</div><h2 style="font-size:1.4rem;font-weight:800;line-height:1.3;margin-bottom:.5rem;color:#0a1628;">Why Digital Infrastructure Transformation Is No Longer Optional — And What's Actually Blocking It</h2><div style="font-size:.8rem;color:var(--gray);margin-bottom:2rem;">Venkat Giri Babu Undru · November 2023 · 5 min read</div><div class="ab"><p>Every CIO I speak to knows that digital infrastructure transformation isn't a future priority. It's an overdue one. Yet most large organisations are still running on a patchwork of legacy systems held together by institutional knowledge and technical debt that compounds every quarter.</p><h3>The cost of standing still is invisible — until it isn't</h3><p>Legacy infrastructure doesn't send you a bill. It costs you in slower release cycles, brittle integrations, weekend incidents, and engineers spending 60% of their time keeping lights on instead of building value.</p><h3>What's actually blocking transformation</h3><ul><li><span class="bk">01</span><span><strong>Fear of disruption over fear of stagnation.</strong> Teams worry more about breaking something today than falling behind over the next three years.</span></li><li><span class="bk">02</span><span><strong>No single owner of the transformation.</strong> When everyone owns it, nobody does.</span></li><li><span class="bk">03</span><span><strong>Treating it as a technology project, not a business initiative.</strong> When business co-owns it, it becomes a competitive capability.</span></li></ul><div class="pull-quote">"The organisations that will win the next decade are not the ones with the best technology. They are the ones that built the delivery engine to absorb and operationalise that technology faster than anyone else."</div><p>Start with the outcomes, not the architecture. What does the business need to do in three years that it cannot do today? Work backward from that to the infrastructure capabilities required.</p><p style="color:var(--gray);font-size:.85rem;">By Venkat Giri Babu Undru · November 2023</p></div></div></div>
 
-<!-- ARTICLE MODAL 5 -->
-<div id="am5" class="modal" onclick="if(event.target===this)this.style.display='none'">
-  <div class="modal-inner">
-    <button class="modal-close" onclick="document.getElementById('am5').style.display='none'">✕</button>
-    <div class="section-label">Modern Problems · Cloud Solutions</div>
-    <h2 style="font-size:1.5rem;font-weight:800;line-height:1.3;margin-bottom:.5rem;color:#0a1628;">Five Modern Enterprise Problems That Cloud-Native Infrastructure Actually Solves</h2>
-    <div style="font-size:.8rem;color:var(--gray);margin-bottom:2rem;">Venkat Giri Babu Undru · March 2024 · 5 min read</div>
-    <div style="color:#2a4050;font-size:.97rem;line-height:1.9;">
-      <p style="margin-bottom:1.2rem;">There's a version of the cloud conversation that's been stuck in cost-optimisation mode for years. Cloud-native infrastructure, done properly, is the answer to the five most persistent operational problems enterprises face.</p>
-      <p style="margin-bottom:.5rem;font-weight:700;color:#0a1628;">Problem 1: You can't get real-time visibility across your operations</p>
-      <p style="margin-bottom:1.2rem;">Most large enterprises are still making decisions off data that's 24 to 48 hours stale. Cloud-native platforms built on event streaming (Kafka, Azure Event Hubs) enable genuine real-time operational intelligence. The shift from daily reports to live dashboards changes how operations teams work entirely.</p>
-      <p style="margin-bottom:.5rem;font-weight:700;color:#0a1628;">Problem 2: Your systems can't scale when the business needs them to</p>
-      <p style="margin-bottom:1.2rem;">Legacy infrastructure forces you to over-provision for the worst case — or fail when it arrives. Cloud-native architecture, built on microservices and auto-scaling, means your infrastructure scales with demand rather than against it.</p>
-      <div class="pull-quote">"Cloud isn't a cost play. Used correctly, it's the answer to the five biggest operational headaches enterprises face today — and the foundation for every competitive advantage they want to build tomorrow."</div>
-      <p style="margin-bottom:.5rem;font-weight:700;color:#0a1628;">Problem 3: Incidents take too long to detect, diagnose, and resolve</p>
-      <p style="margin-bottom:1.2rem;">Cloud-native observability — centralised logging, distributed tracing, AI-assisted alerting — compresses the resolution window dramatically. The goal is mean-time-to-resolution measured in minutes, not hours.</p>
-      <p style="margin-bottom:.5rem;font-weight:700;color:#0a1628;">Problem 4: Releasing new features takes months, not days</p>
-      <p style="margin-bottom:1.2rem;">Cloud-native infrastructure paired with mature DevOps — CI/CD pipelines, containerisation, infrastructure as code — enables deployment frequencies that would have been unimaginable five years ago.</p>
-      <p style="margin-bottom:.5rem;font-weight:700;color:#0a1628;">Problem 5: You can't attract or retain the engineering talent you need</p>
-      <p style="margin-bottom:1.2rem;">The best engineers want to work on modern stacks. Cloud-native modernisation is not just a technology investment — it's a talent strategy.</p>
-      <p style="color:var(--gray);font-size:.85rem;">By Venkat Giri Babu Undru · March 2024</p>
-    </div>
-  </div>
-</div>
+<div id="am5" class="modal" onclick="if(event.target===this)this.style.display='none'"><div class="modal-inner"><button class="modal-close" onclick="document.getElementById('am5').style.display='none'">✕</button><div class="section-label">Modern Problems · Cloud Solutions</div><h2 style="font-size:1.4rem;font-weight:800;line-height:1.3;margin-bottom:.5rem;color:#0a1628;">Five Modern Enterprise Problems That Cloud-Native Infrastructure Actually Solves</h2><div style="font-size:.8rem;color:var(--gray);margin-bottom:2rem;">Venkat Giri Babu Undru · March 2024 · 5 min read</div><div class="ab"><p>Cloud-native infrastructure, done properly, is the answer to the five most persistent operational problems enterprises face.</p><h3>Problem 1: You can't get real-time visibility across your operations</h3><p>Most large enterprises are still making decisions off data that's 24–48 hours stale. Cloud-native platforms built on event streaming (Kafka, Azure Event Hubs) enable genuine real-time operational intelligence.</p><h3>Problem 2: Your systems can't scale when the business needs them to</h3><p>Legacy infrastructure forces you to over-provision for the worst case — or fail when it arrives. Cloud-native architecture built on microservices and auto-scaling means your infrastructure scales with demand.</p><div class="pull-quote">"Cloud isn't a cost play. Used correctly, it's the answer to the five biggest operational headaches enterprises face today — and the foundation for every competitive advantage they want to build tomorrow."</div><h3>Problem 3: Incidents take too long to detect, diagnose, and resolve</h3><p>Cloud-native observability compresses the resolution window dramatically. The goal is mean-time-to-resolution measured in minutes, not hours.</p><h3>Problem 4: Releasing new features takes months, not days</h3><p>Cloud-native paired with mature DevOps — CI/CD, containerisation, infrastructure as code — enables deployment frequencies unimaginable five years ago.</p><h3>Problem 5: You can't attract or retain the engineering talent you need</h3><p>The best engineers want to work on modern stacks. Cloud-native modernisation is not just a technology investment — it's a talent strategy.</p><p style="color:var(--gray);font-size:.85rem;">By Venkat Giri Babu Undru · March 2024</p></div></div></div>
 
+<div id="am6" class="modal" onclick="if(event.target===this)this.style.display='none'"><div class="modal-inner"><button class="modal-close" onclick="document.getElementById('am6').style.display='none'">✕</button><div class="section-label">ServiceNow · MSP Governance · SLA</div><h2 style="font-size:1.4rem;font-weight:800;line-height:1.3;margin-bottom:.5rem;color:#0a1628;">ServiceNow as the Bible for MSP Performance: How to Govern Multi-Year Contracts Without Losing Strategic Partners</h2><div style="font-size:.8rem;color:var(--gray);margin-bottom:2rem;">Venkat Giri Babu Undru · January 2024 · 7 min read</div><div class="ab"><p>I have sat on both sides of the MSP governance table. The answer is building ServiceNow as your single source of truth for MSP governance — not as an afterthought, but as the operational backbone of the entire relationship from Day 1.</p><h3>The core problem: penalty without intelligence is just punishment</h3><p>Most enterprise-MSP contracts have well-written SLA clauses. The failure is not in the contract language — it is in the measurement infrastructure. When your only governance tool is a monthly SLA report reviewed in a room full of lawyers, you are managing consequences, not performance.</p><div class="pull-quote">"The goal of MSP governance is not to catch vendors failing. It is to create a system where failure is detected early enough that it never becomes a crisis — for either party."</div><h3>The two-track model: SIP vs. financial penalty</h3><p><strong>Track 1 — Yellow Zone (SIP):</strong> A SIP is triggered when a KPI slips below target for two consecutive months. The vendor gets a structured 30–90 day window with defined milestones to self-correct. No financial impact while SIP is active.</p><p><strong>Track 2 — Red Zone (Penalty):</strong> Financial credits are reserved for P1 SLA breach, chronic breach of 3+ consecutive months, or failure to execute an active SIP. When a SIP fails, it converts automatically to contractual default.</p><h3>Five ServiceNow modules that power the architecture</h3><ul><li><span class="bk">01</span><span><strong>Contract Management module</strong> — SLA thresholds, penalty structures, SIP eligibility windows. Every governance action links back here creating an auditable chain of evidence.</span></li><li><span class="bk">02</span><span><strong>Vendor Performance Management module</strong> — Monthly KPI records scored against contractual targets. Business rules automatically flag any KPI entering breached status.</span></li><li><span class="bk">03</span><span><strong>SLA Management module</strong> — Real-time timers against every active P1/P2 incident. When restore window is breached, a service credit task is automatically generated.</span></li><li><span class="bk">04</span><span><strong>SIP Records</strong> — Provisioned automatically by Flow Designer on two consecutive monthly breaches. Both enterprise team and vendor see the same record.</span></li><li><span class="bk">05</span><span><strong>Financial Credit Workflow</strong> — Triggered by P1 SLA breach or SIP exit failure. Calculates credit and routes to procurement for invoice adjustment.</span></li></ul><div class="pull-quote">"When both parties are looking at the same dashboard in real time, governance becomes a conversation — not a confrontation."</div><h3>The leadership dashboard: what each side sees</h3><p><strong>Enterprise leadership:</strong> RAG status across all active MSP contracts, active SIPs and milestone rates, financial credits accrued, P1 trends, contract renewal risk indicators.</p><p><strong>Vendor delivery leadership:</strong> Live KPI performance vs. targets, open SIP milestones with due dates, active SLA timers on open incidents, rolling 12-month KPI trend, credit exposure if current trajectory holds.</p><p>ServiceNow, architected correctly, is not just a ticketing tool. It is the operating system for your vendor ecosystem. Build it that way from Day 1.</p><p style="color:var(--gray);font-size:.85rem;">By Venkat Giri Babu Undru · January 2024</p></div></div></div>
+
+<div id="am7" class="modal" onclick="if(event.target===this)this.style.display='none'"><div class="modal-inner"><button class="modal-close" onclick="document.getElementById('am7').style.display='none'">✕</button><div class="section-label">Delivery · Operations · Transformation</div><h2 style="font-size:1.4rem;font-weight:800;line-height:1.3;margin-bottom:.5rem;color:#0a1628;">Move to Production: Why the Hardest Part of Any Transformation Programme Is the Last 30 Days</h2><div style="font-size:.8rem;color:var(--gray);margin-bottom:2rem;">Venkat Giri Babu Undru · February 2024 · 6 min read</div><div class="ab"><p>In my experience running large-scale cloud and infrastructure transformation programmes, the move to production — what we call MTP — is where more value is destroyed than at any other point in the programme lifecycle. Not because the technology fails. Because the handover fails.</p><div class="pull-quote">"Operations doesn't fail at MTP because they lack capability. They fail because nobody involved them early enough for capability to matter."</div><h3>Fix 1 — Governance that connects delivery to operations from day one</h3><p>A standing weekly governance call at both leadership and leads level with four fixed agenda items: inflight and pipeline projects; sustain lead alignment (a named person per project, not a team); milestone tracking; and issues and blockers surfaced and owned in this forum — not in an email chain.</p><h3>Fix 2 — Nearing completion milestone</h3><p>When a project crosses 70–80% completion, three deliverables are mandatory: entry/exit criteria, a co-authored MTP checklist with evidence, and a runbook written by delivery and validated by operations.</p><h3>The MTP checklist — six buckets, every item evidenced</h3><p>A checklist without evidence is a list of intentions. Every item requires a screenshot, test result, signed email, or configuration export.</p>
+<div class="bucket"><div class="bucket-hd" style="background:#e8f4fb;">📋 Bucket 1 — Programme &amp; reporting</div><ul class="bucket-bd"><li>MTP report generated before and after migration</li><li>Business criticality of the application formally documented</li><li>Recovery priority (Tier 1/2/3) confirmed and aligned with DR runbook</li><li>Go-live sign-off email and risk acceptance email — Archer exception details attached</li></ul></div>
+<div class="bucket"><div class="bucket-hd" style="background:#eef8f0;">🖥️ Bucket 2 — Infrastructure &amp; platform readiness</div><ul class="bucket-bd"><li>Supported version and latest patch applied — exceptions require formal risk acceptance</li><li>Switchover evidence and app connectivity test on standby — tested and evidenced, not assumed</li><li>Availability of lower environments (DEV, SIT, UAT) confirmed post-migration</li><li>Cronjob details — schedule, owner, dependency, and failure procedure documented</li></ul></div>
+<div class="bucket"><div class="bucket-hd" style="background:#fef2f2;">🔐 Bucket 3 — Security &amp; compliance</div><ul class="bucket-bd"><li>Wallet configuration confirmed, tested, and accessible. Connection strings verified</li><li>Guardium installation confirmed active and reporting. Security team sign-off attached</li><li>VA score post migration — open critical/high findings require remediation plan before go-live</li><li>Privileged account details (SYS, SYSDG, wallet) rotated, vaulted, and access tested by ops</li><li>DB related passwords (sys, sysdg, wallet etc.) handed over, vault entry verified, old credentials invalidated</li></ul></div>
+<div class="bucket"><div class="bucket-hd" style="background:#fdf6e8;">💾 Bucket 4 — Backup, recovery &amp; HA/DR</div><ul class="bucket-bd"><li>Backup configuration confirmed — first successful backup post-migration verified restorable</li><li>Rubrik SLA details confirmed — policy active, tier matching recovery priority, screenshot attached</li></ul></div>
+<div class="bucket"><div class="bucket-hd" style="background:#f0f4ff;">📡 Bucket 5 — Monitoring &amp; observability</div><ul class="bucket-bd"><li>OEM monitoring active — target added, metrics collecting, alert thresholds configured, location field updated</li><li>Monitoring disabled on source (older) system — stale alerts mask real incidents on new environment</li></ul></div>
+<div class="bucket"><div class="bucket-hd" style="background:#f5f0fb;">🎫 Bucket 6 — ITSM &amp; operational handover</div><ul class="bucket-bd"><li>DBR/SNOW CMDB entries updated — host details, app mapping, support group, recovery tier</li><li>DBA assigned in DBR — a named individual, not a team queue, accountable for Day 1 support</li><li>OEM location updated as FIELD — incorrect location breaks auto-routing of alerts to the right team</li></ul></div>
+<h3>Fix 3 — Cutover window: shadow and reverse shadow</h3><p><strong>Shadow (1–2 weeks):</strong> Operations watches delivery execute procedures — monitoring checks, alert responses, escalation paths. Observes and takes notes.</p><p><strong>Reverse shadow (1–2 weeks):</strong> Operations executes. Delivery watches and corrects in real time. Runbook gaps surface and get fixed before go-live — not after.</p><h3>Common issues you will face</h3><ul><li><span class="bk">▸</span><span><strong>Not every ops resource knows about the project.</strong> Mandate a formal ops team briefing at the nearing completion milestone — not just the lead, the whole team.</span></li><li><span class="bk">▸</span><span><strong>More volume than expected.</strong> Build 20–30% buffer into the MTP calendar. Capacity surprises at cutover are programme killers.</span></li><li><span class="bk">▸</span><span><strong>Escalation procedure breaks down during the handover window.</strong> Define a specific handover window escalation path and publish it to both teams before the window opens.</span></li></ul><div class="pull-quote">"A production transition is not an event. It is a process that starts at programme kick-off and ends 30 days after go-live. Treat it that way, and your operations team will thank you. Treat it as a hand-off meeting, and your operations team will be calling you at 2am for the next six months."</div><p style="color:var(--gray);font-size:.85rem;">By Venkat Giri Babu Undru · February 2024</p></div></div></div>
+
+<!-- ==================== SCRIPT ==================== -->
 <script>
 const PROFILE=`You are an AI assistant on Venkat Giri Babu Undru's personal portfolio website. Answer questions about Venkat based ONLY on the following profile. Be concise, professional, and enthusiastic about his achievements.
 NAME: Venkat Giri Babu Undru
 TITLE: Leader — Cloud, Infrastructure & Service Delivery
 LOCATION: Trenton, New Jersey, USA
 EMAIL: venkat387@gmail.com
-SUMMARY: Over 20 years at Cognizant, built and run global IT delivery operations for Fortune 500 clients across Consumer Goods, Technology, Hospitality, Banking, and Healthcare sectors. Led a $13M annual infrastructure and cloud programme across 200+ engineers. Specialises in making large, complex programmes predictable without drama or escalations.
+WEBSITE: www.undruvenkatgiribabu.com
+SUMMARY: Over 20 years at Cognizant, built and run global IT delivery operations for Fortune 500 clients across Consumer Goods, Technology, Hospitality, Banking, and Healthcare sectors. Led a $13M annual infrastructure and cloud programme across 200+ engineers. Specialises in making large, complex programmes predictable without drama or escalations. Fluent across Azure, AWS, and GCP in actual production environments.
 AWARD: Cognizant 25th Anniversary Challenge Coin — awarded to 2,500 of 280,000 employees worldwide (2019).
-EXPERIENCE: Program Director at Consumer Goods Customer (via Cognizant) Dec 2022–Present. Sr Service Delivery Director Consumer Goods (2016–2022). Program Director Technology Customer (2022). Operations Manager Hospitality & Retail (2014-2016). SQL DBA roles at Banking, Healthcare, Retail and Technology customers (2005-2014).
-CERTIFICATIONS: Claude Certified Architect (Anthropic 2026), AWS Solutions Architect Professional, Microsoft Azure Solutions Architect, Google Cloud Professional Cloud Architect, Agentic AI Executive (ServiceNow 2025), MCTS, MCITP, MCDBA, PRINCE2, ITIL V3 & V4.
-EDUCATION: Bachelor of Engineering, Visvesvaraya Technological University (2001–2005).`;
+EXPERIENCE: Program Director Consumer Goods Customer Dec 2022–Present ($5M+ programme, Kafka/Azure supply chain platform, 18 months zero escalations). Sr Service Delivery Director Consumer Goods 2016–2022 ($13M portfolio, 80 to 200+ engineers). Program Director Technology Customer 2022 ($10M growth, 40% margin). Operations Manager Hospitality & Retail 2014-2016. SQL DBA roles at Banking, Healthcare, Retail and Technology customers 2005-2014.
+CERTIFICATIONS: Claude Certified Architect (Anthropic 2026), AWS Solutions Architect Professional, Microsoft Azure Solutions Architect, Google Cloud Professional Cloud Architect, Agentic AI Executive (ServiceNow 2025), MCTS, MCITP, MCDBA, PRINCE2 Foundation & Practitioner, ITIL V3 & V4, Architecting Microsoft Azure Solutions.
+EDUCATION: Bachelor of Engineering, Visvesvaraya Technological University 2001–2005.
+ARTICLES: Writes about supply chain transformation, global team scaling, delivery accountability, digital infrastructure transformation, cloud-native solutions, MSP governance with ServiceNow, and move-to-production frameworks.`;
 const msgs=[];
 async function sendMsg(){
   const inp=document.getElementById('chatInput');
@@ -597,11 +488,17 @@ async function sendMsg(){
   msgs.push({role:'user',content:q});
   const t=addTyping();
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system:PROFILE,messages:msgs})});
+    const r=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system:PROFILE,messages:msgs})
+    });
     const d=await r.json();
     const reply=d.content?.[0]?.text||"I'm having trouble connecting. Please try again.";
     t.remove();addMsg(reply,'bot');msgs.push({role:'assistant',content:reply});
-  }catch(e){t.remove();addMsg("Sorry, I'm having trouble connecting. Please reach out to Venkat at venkat387@gmail.com",'bot');}
+  }catch(e){
+    t.remove();addMsg("Sorry, I'm having trouble connecting. Please reach out to Venkat at venkat387@gmail.com",'bot');
+  }
 }
 function addMsg(text,type){
   const box=document.getElementById('chatMsgs');
@@ -612,7 +509,8 @@ function addMsg(text,type){
 function addTyping(){
   const box=document.getElementById('chatMsgs');
   const d=document.createElement('div');
-  d.className='msg bot';d.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';
+  d.className='msg bot';
+  d.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';
   box.appendChild(d);box.scrollTop=box.scrollHeight;return d;
 }
 function askChip(el){document.getElementById('chatInput').value=el.textContent;sendMsg();}
